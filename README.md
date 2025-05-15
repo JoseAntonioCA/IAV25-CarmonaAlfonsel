@@ -28,7 +28,7 @@ Los ESTADOS BÁSICOS, los principales que tienen que estar son los siguientes:
 - Perseguir: Persigue al jugador hasta alcanzarlo o perderlo de vista.
 
 Adjunto una imagen esquematizada sobre su comportamiento, donde se explica brevemente la transición entre estados de un enemigo (el estado de que le indican de ir a un punto si se lo ordenan no viene representado en el esquema): 
-![alt text](<Captura de pantalla 2025-05-15 192659.png>)
+![alt text](image.png)
 
 
 ## Pseudo código
