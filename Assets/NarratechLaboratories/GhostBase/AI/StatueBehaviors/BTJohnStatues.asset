@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: BTJohnStatues
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: JohnLemonBT
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(411.4884,138.139526)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(2.48840332,108.139526)"},"ID":1,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-237.435974,110)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"CheckPush","NodeData":{"Offset":"(-120.205757,134.9332)"},"ID":3,"Name":"Check
+        Push","Instant":true,"SharedVector3destiny":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Destiny","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedIntcolor":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"Color","IsShared":true,"Int32mValue":0},"SharedGameObjecttotem":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Totem","IsShared":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.BehaviorTreeReference","NodeData":{"Offset":"(27.3974915,138.139542)"},"ID":4,"Name":"Behavior
+        Tree Reference","Instant":true,"ExternalBehavior[]externalBehaviors":[0],"SharedNamedVariable[]variables":[{"Type":"BehaviorDesigner.Runtime.SharedNamedVariable","Name":null,"NamedVariablemValue":{"Stringname":"Color","Stringtype":"SharedInt","SharedVariablevalue":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"Color","IsShared":true,"Int32mValue":0}}}],"Booleancollapsed":false}]},{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(113.163139,110.172668)"},"ID":5,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-0.9394226,97.73358)"},"ID":6,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(-110,126.585365)"},"ID":7,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(0,110)"},"ID":8,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-111.896805,122.346924)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"CheckBehind","NodeData":{"Offset":"(-67.57616,116.2168)"},"ID":10,"Name":"Check
+        Behind","Instant":true,"SharedVector3destiny":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Destiny","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedVector3behind":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"BehindTotem","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedGameObjecttotem":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Totem","IsShared":true}},{"Type":"MoveBehind","NodeData":{"Offset":"(70.12474,116.243317)"},"ID":11,"Name":"Move
+        Behind","Instant":true,"SharedVector3behind":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"BehindTotem","IsShared":true,"Vector3mValue":"(0,0,0)"}}]},{"Type":"Unstuck","NodeData":{"Offset":"(70,130)"},"ID":12,"Name":"Unstuck","Instant":true,"SharedGameObjecttotem":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Totem","IsShared":true}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.ParallelComplete","NodeData":{"Offset":"(161.363632,115.609756)"},"ID":13,"Name":"Parallel
+        Complete","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(-60,131.1112)"},"ID":14,"Name":"Until
+        Failure","Instant":true,"Children":[{"Type":"StillBehind","NodeData":{"Offset":"(-3.96594238,123.254639)"},"ID":15,"Name":"Still
+        Behind","Instant":true,"SharedVector3destiny":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Destiny","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedVector3behind":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"BehindTotem","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedGameObjecttotem":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Totem","IsShared":true}}]},{"Type":"PushToObjective","NodeData":{"Offset":"(97.8213348,134.838074)"},"ID":16,"Name":"Push
+        To Objective","Instant":true,"Singlespeed":0.1,"SharedVector3objective":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Destiny","IsShared":true,"Vector3mValue":"(0,0,0)"}}]}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"Color","IsShared":true,"Int32mValue":0},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Destiny","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"BehindTotem","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Totem","IsShared":true}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 11400000}
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.12
