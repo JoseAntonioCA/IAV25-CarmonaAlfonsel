@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public InputAction MoveAction;
     
-    public float turnSpeed = 20f;
+    public float turnSpeed;
+    public float movementSpeed;
 
     Animator m_Animator;
     Rigidbody m_Rigidbody;
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAnimatorMove ()
     {
-        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
+        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude * movementSpeed);
         m_Rigidbody.MoveRotation (m_Rotation);
     }
 }
