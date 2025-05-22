@@ -135,6 +135,25 @@ public class EnemyComunicator : MonoBehaviour
         //        partners.Remove(otherRoot);
         //    }
         //}
+        if (other.CompareTag("GHOST"))
+        {
+            EnemyHealth myEnemy = GetComponentInParent<EnemyHealth>();
+            EnemyHealth otherEnemy = other.GetComponentInParent<EnemyHealth>();
+
+            if (myEnemy == null || otherEnemy == null) return;
+
+            Debug.Log($"Yo soy: {myEnemy.name}, Otro es: {otherEnemy.name}");
+
+            if (myEnemy != otherEnemy)
+            {
+                if (partners.Contains(otherEnemy.gameObject))
+                {
+                    Debug.Log("SE FUE UN ALIADO DE MI COMUNICADOR");
+                    Debug.Log("Quitando de partners: " + otherEnemy.gameObject.name);
+                    partners.Remove(otherEnemy.gameObject);
+                }
+            }
+        }
     }
 
 }

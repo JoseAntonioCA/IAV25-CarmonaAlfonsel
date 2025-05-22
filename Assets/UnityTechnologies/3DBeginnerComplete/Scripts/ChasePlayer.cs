@@ -23,7 +23,7 @@ public class ChasePlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("JUGADOR AVISTADO, PROCEDO A PERSEGUIRLO");
+        Debug.Log("JUGADOR AVISTADO, PROCEDO A PERSEGUIRLO, QUE ME AYUDEN MIS COMPAÑEROS");
         enemyComunicator.GoAndChasePlayer();
         playerVisible = true;
     }
@@ -62,9 +62,10 @@ public class ChasePlayer : MonoBehaviour
         {
             Debug.LogWarning("No se encontró un objeto con la etiqueta 'Player'.");
         }
-        this.enabled = false;
         playerVisible = false;
         enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
+        stopChaseCoolDown = chaseTime;
+        this.enabled = false;
     }
 
     void Update()
