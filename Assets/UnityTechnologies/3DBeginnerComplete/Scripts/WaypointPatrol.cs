@@ -14,6 +14,11 @@ public class WaypointPatrol : MonoBehaviour
 
     int m_CurrentWaypointIndex;
 
+    private void OnEnable()
+    {
+        navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+    }
+
     void Start ()
     {
         GameObject gameManagerObject = GameObject.FindWithTag("GameManager");

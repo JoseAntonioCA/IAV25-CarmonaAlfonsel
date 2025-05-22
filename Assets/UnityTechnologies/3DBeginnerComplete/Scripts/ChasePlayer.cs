@@ -8,21 +8,30 @@ public class ChasePlayer : MonoBehaviour
 {
     Transform player;
     GameManager gameManager;
+    EnemyComunicator enemyComunicator;
+    public GameObject comunicator;
     public NavMeshAgent navMeshAgent;
     public float chaseTime;
     float stopChaseCoolDown;
 
     bool playerVisible;
 
+    public void SeePlayer(bool see)
+    {
+        playerVisible = see;
+    }
+
     private void OnEnable()
     {
-        GetComponent<EnemyComunicator>().GoAndChasePlayer();
+        Debug.Log("JUGADOR AVISTADO, PROCEDO A PERSEGUIRLO");
+        enemyComunicator.GoAndChasePlayer();
         playerVisible = true;
     }
 
     private void OnDisable()
     {
         Debug.Log("LO HE PERDIDO, CONTINUO LA PATRULLA");
+        enemyComunicator.StopChasingPlayer();
         stopChaseCoolDown = chaseTime;
         GetComponent<WaypointPatrol>().enabled = true;
         playerVisible = false;
@@ -55,6 +64,7 @@ public class ChasePlayer : MonoBehaviour
         }
         this.enabled = false;
         playerVisible = false;
+        enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
     }
 
     void Update()
@@ -67,10 +77,9 @@ public class ChasePlayer : MonoBehaviour
         else
         {
             stopChaseCoolDown -= Time.deltaTime;
-            Debug.Log(stopChaseCoolDown);
+            //Debug.Log(stopChaseCoolDown);
             if (stopChaseCoolDown <= 0.0f)
             {
-                
                 this.enabled = false;
             }
         }
@@ -81,6 +90,7 @@ public class ChasePlayer : MonoBehaviour
     {
         if (other.transform == player)
         {
+            enemyComunicator.IseePlayer();
             playerVisible = true;
             Debug.Log("HE VISTO AL JUGADOR");
         }

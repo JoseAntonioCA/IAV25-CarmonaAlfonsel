@@ -58,12 +58,12 @@ public class Observer : MonoBehaviour
         {
             m_IsPlayerInRange = true;
         }
-        else // Si entra algo del mismo color que el padre de este observador, este padre desaparecerá con un sonidito 
-            if (!other.gameObject.CompareTag("Untagged") && other.gameObject.CompareTag(transform.parent?.gameObject.tag))
-            {
-                bubbleAudio.Play(); // Reproduce el sonido
-                Destroy(transform.parent?.gameObject); // Destruye el objeto
-            }
+        //else // Si entra algo del mismo color que el padre de este observador, este padre desaparecerá con un sonidito 
+        //    if (!other.gameObject.CompareTag("Untagged") && other.gameObject.CompareTag(transform.parent?.gameObject.tag))
+        //    {
+        //        bubbleAudio.Play(); // Reproduce el sonido
+        //        Destroy(transform.parent?.gameObject); // Destruye el objeto
+        //    }
     }
 
     void OnTriggerExit (Collider other)

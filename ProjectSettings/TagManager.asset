@@ -14,7 +14,7 @@ TagManager:
   - Green
   - Blue
   - Bubble
-  - ENEMY
+  - GHOST
   layers:
   - Default
   - TransparentFX
