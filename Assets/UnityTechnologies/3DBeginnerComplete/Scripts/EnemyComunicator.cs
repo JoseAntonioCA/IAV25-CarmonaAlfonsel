@@ -55,8 +55,8 @@ public class EnemyComunicator : MonoBehaviour
 
                 if (!obj.GetComponentInChildren<ChasePlayer>().enabled)
                     obj.GetComponentInChildren<ChasePlayer>().enabled = true;
-                else
-                    obj.GetComponentInChildren<ChasePlayer>().SeePlayer(true);
+                
+                obj.GetComponentInChildren<ChasePlayer>().SeePlayer(true);
             }
         }
     }

@@ -84,7 +84,7 @@ public class Observer : MonoBehaviour
             
             if (Physics.Raycast (ray, out raycastHit))
             {
-                if (raycastHit.collider.transform == player)
+                if (raycastHit.collider.transform == player && !player.gameObject.GetComponent<PlayerMovement>().IsInvisible())
                 {
                     gameManager.CaughtPlayer();
                     m_IsPlayerInRange = false; // Añado esto para que sólo se llame a CaughtPlayer el primer fotograma
