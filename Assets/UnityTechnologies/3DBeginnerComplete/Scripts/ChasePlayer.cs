@@ -14,6 +14,8 @@ public class ChasePlayer : MonoBehaviour
     public float chaseTime;
     float stopChaseCoolDown;
 
+    List<Transform> lookablePoints = new List<Transform>();
+
     bool playerVisible;
     bool partnerAlert;
 
@@ -126,7 +128,7 @@ public class ChasePlayer : MonoBehaviour
                 {
                     jugadorEncontrado = true;
                     enemyComunicator.IseePlayer();
-                    hit.collider.gameObject.GetComponent<PlayerMovement>().CanHide(false);
+                    //hit.collider.gameObject.GetComponent<PlayerMovement>().CanHide(false);
                     playerVisible = true;
                     //Debug.Log("HE VISTO AL JUGADOR");
                 }
@@ -140,6 +142,29 @@ public class ChasePlayer : MonoBehaviour
         }
     }
 
+    void ScanLookablePoints()
+    {
+        lookablePoints.Clear();
+        Collider[] colisiones = Physics.OverlapSphere(transform.position, 30.0f);
+
+        foreach (Collider col in colisiones)
+        {
+            if (col.CompareTag("LOOK_POINT")) // puedes omitir esto si solo usas la capa
+            {
+                lookablePoints.Add(col.transform);
+            }
+        }
+    }
+
+    Transform RandomDestination()
+    {
+        if (lookablePoints.Count == 0) return transform;
+
+        int index = Random.Range(0, lookablePoints.Count);
+
+        return lookablePoints[index];
+    }
+
     void Update()
     {
         DetectSmth();
@@ -150,14 +175,23 @@ public class ChasePlayer : MonoBehaviour
         {
             int rndNumber = Random.Range(0, 100);
 
-            if (rndNumber <= 50)
-            {
-                GetComponent<Investigate>().enabled = true;
-            }
-            else
-            {
+            Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
+            GetComponent<Investigate>().enabled = true;
+            //GetComponent<Investigate>().GoToPointToInvestigate(transform);
 
-            }
+            //if (rndNumber <= 50)
+            //{
+            //    Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
+            //    GetComponent<Investigate>().enabled = true;
+            //    GetComponent<Investigate>().GoToPointToInvestigate(transform);
+            //}
+            //else
+            //{
+            //    Debug.Log("PERDÍ AL JUGADOR, VOY A UN PUNTO CERCANO");
+            //    ScanLookablePoints();
+            //    GetComponent<Investigate>().enabled = true;
+            //    GetComponent<Investigate>().GoToPointToInvestigate(RandomDestination());
+            //}
 
             this.enabled = false;
         }

@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 307442182}
   m_Layer: 0
   m_Name: LookPoint (8)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 371719943}
   m_Layer: 0
   m_Name: LookPoint (2)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 397727605}
   m_Layer: 0
   m_Name: LookPoint (10)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 399330307}
   m_Layer: 0
   m_Name: LookPoint (3)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 492800603}
   m_Layer: 0
   m_Name: LookPoint (7)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2487,7 +2487,7 @@ GameObject:
   - component: {fileID: 1000678841}
   m_Layer: 0
   m_Name: LookPoint (1)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2863,7 +2863,7 @@ GameObject:
   - component: {fileID: 1091817280}
   m_Layer: 0
   m_Name: LookPoint (5)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2968,7 +2968,7 @@ PrefabInstance:
     - target: {fileID: 142462114116109389, guid: e58a8494f35e17f45ba5bbffdfb92517,
         type: 3}
       propertyPath: movementSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 142462114116109389, guid: e58a8494f35e17f45ba5bbffdfb92517,
         type: 3}
@@ -3519,7 +3519,7 @@ GameObject:
   - component: {fileID: 1350836238}
   m_Layer: 0
   m_Name: LookPoint
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4476,7 +4476,7 @@ GameObject:
   - component: {fileID: 1514760690}
   m_Layer: 0
   m_Name: LookPoint (6)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4955,7 +4955,7 @@ GameObject:
   - component: {fileID: 1802964125}
   m_Layer: 0
   m_Name: LookPoint (9)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5093,7 +5093,7 @@ GameObject:
   - component: {fileID: 1876727283}
   m_Layer: 0
   m_Name: LookPoint (4)
-  m_TagString: Untagged
+  m_TagString: LOOK_POINT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

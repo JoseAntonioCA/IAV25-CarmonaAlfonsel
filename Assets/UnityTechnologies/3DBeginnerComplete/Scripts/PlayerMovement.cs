@@ -118,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("ME PUEDO ESCONDER");
                     ImInvisible = true;
+                    this.gameObject.isStatic = true;
                 }
                 else if (!canHide && !ImInvisible)
                 {
@@ -126,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
                 else if (ImInvisible)
                 {
                     ImInvisible = false;
+                    this.gameObject.isStatic = true;
                 }
             }
         }
