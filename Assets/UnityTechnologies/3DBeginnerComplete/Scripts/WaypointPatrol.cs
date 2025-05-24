@@ -9,7 +9,6 @@ public class WaypointPatrol : MonoBehaviour
     GameManager gameManager;
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
-    public BoxCollider viewPoint;
 
     public float visionRange = 10f;         // Cuánto alcance tiene el cono
     public float visionAngle = 30f;         // Ángulo total del cono

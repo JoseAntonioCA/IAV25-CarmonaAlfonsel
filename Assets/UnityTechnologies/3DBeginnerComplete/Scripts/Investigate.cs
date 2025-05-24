@@ -12,7 +12,6 @@ public class Investigate : MonoBehaviour
     Quaternion originalRotation;
     public NavMeshAgent navMeshAgent;
     Transform pointToInvestigate;
-    public BoxCollider viewPoint;
     public float investigationTime;
     float stopInvestigationCoolDown;
 
@@ -147,14 +146,5 @@ public class Investigate : MonoBehaviour
                 this.enabled = false;
             }
         }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        //if (other.transform == player)
-        //{
-        //    GetComponent<ChasePlayer>().enabled = true;
-        //    this.enabled = false;
-        //}
     }
 }

@@ -17,8 +17,7 @@ public class EnemyComunicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //EnemyHealth myEnemy = GetComponentInParent<EnemyHealth>();
-        //Debug.Log($"Yo soy: {myEnemy.name}, tengo {partners.Count} aliados");
+        
     }
 
     public void GoAndChasePlayer()
@@ -27,8 +26,8 @@ public class EnemyComunicator : MonoBehaviour
         if (partners.Count > 0) {
             foreach (GameObject obj in partners)
             {
-                Debug.Log("Objeto en partners: " + obj.name);
-                Debug.Log("Tiene WaypointPatrol: " + (obj.GetComponentInChildren<WaypointPatrol>() != null));
+                //Debug.Log("Objeto en partners: " + obj.name);
+                //Debug.Log("Tiene WaypointPatrol: " + (obj.GetComponentInChildren<WaypointPatrol>() != null));
 
                 if (obj.GetComponentInChildren<WaypointPatrol>().enabled)
                 {
@@ -70,7 +69,7 @@ public class EnemyComunicator : MonoBehaviour
                 if (obj.GetComponentInChildren<ChasePlayer>().enabled)
                     obj.GetComponentInChildren<ChasePlayer>().enabled = false;
 
-                if (!obj.GetComponentInChildren<WaypointPatrol>().enabled)
+                if (!obj.GetComponentInChildren<WaypointPatrol>().enabled && !obj.GetComponentInChildren<Investigate>().enabled)
                     obj.GetComponentInChildren<WaypointPatrol>().enabled = true;
             }
         }
@@ -78,23 +77,6 @@ public class EnemyComunicator : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //if (other.tag == "GHOST" && other.transform.root != transform.root)
-        //{
-        //    bool encontrado = false;
-
-        //    foreach (GameObject obj in partners)
-        //    {
-        //        if (other.name == obj.name)
-        //            encontrado = true;
-        //    }
-
-        //    if (!encontrado)
-        //    {
-        //        Debug.Log("TENGO UN ALIADO MÁS EN EL COMUNICADOR");
-        //        partners.Add(other.gameObject);
-        //    }
-        //}
-
         //Debug.Log($"OnTriggerEnter con {other.name} (tag: {other.tag})");
         if (other.CompareTag("GHOST"))
         {
@@ -103,14 +85,14 @@ public class EnemyComunicator : MonoBehaviour
 
             if (myEnemy == null || otherEnemy == null) return;
 
-            Debug.Log($"Yo soy: {myEnemy.name}, Otro es: {otherEnemy.name}");
+            //Debug.Log($"Yo soy: {myEnemy.name}, Otro es: {otherEnemy.name}");
 
             if (myEnemy != otherEnemy)
             {
                 if (!partners.Contains(otherEnemy.gameObject))
                 {
                     Debug.Log("TENGO UN ALIADO MÁS EN EL COMUNICADOR");
-                    Debug.Log("Añadiendo a partners: " + otherEnemy.gameObject.name);
+                    //Debug.Log("Añadiendo a partners: " + otherEnemy.gameObject.name);
                     partners.Add(otherEnemy.gameObject);
                 }
             }
@@ -119,22 +101,6 @@ public class EnemyComunicator : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        //if (other.tag == "GHOST" && other.transform.root != transform.root)
-        //{
-        //    Debug.Log("SE FUE UN ALIADO DE MI COMUNICADOR");
-        //    partners.Remove(other.gameObject);
-        //}
-        //if (other.CompareTag("GHOST"))
-        //{
-        //    GameObject otherRoot = other.transform.root.gameObject;
-        //    GameObject myRoot = transform.root.gameObject;
-
-        //    if (otherRoot != myRoot)
-        //    {
-        //        Debug.Log("SE FUE UN ALIADO DE MI COMUNICADOR");
-        //        partners.Remove(otherRoot);
-        //    }
-        //}
         if (other.CompareTag("GHOST"))
         {
             EnemyHealth myEnemy = GetComponentInParent<EnemyHealth>();
@@ -142,14 +108,14 @@ public class EnemyComunicator : MonoBehaviour
 
             if (myEnemy == null || otherEnemy == null) return;
 
-            Debug.Log($"Yo soy: {myEnemy.name}, Otro es: {otherEnemy.name}");
+            //Debug.Log($"Yo soy: {myEnemy.name}, Otro es: {otherEnemy.name}");
 
             if (myEnemy != otherEnemy)
             {
                 if (partners.Contains(otherEnemy.gameObject))
                 {
                     Debug.Log("SE FUE UN ALIADO DE MI COMUNICADOR");
-                    Debug.Log("Quitando de partners: " + otherEnemy.gameObject.name);
+                    //Debug.Log("Quitando de partners: " + otherEnemy.gameObject.name);
                     partners.Remove(otherEnemy.gameObject);
                 }
             }

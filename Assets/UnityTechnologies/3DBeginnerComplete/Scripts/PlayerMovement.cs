@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate ()
     {
+        //Debug.Log(ImInvisible);
         if (!ImInvisible)
         {
             if (Input.GetKeyDown(KeyCode.Q) && remainingDropableObjects > 0)

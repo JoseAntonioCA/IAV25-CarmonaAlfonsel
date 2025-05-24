@@ -145,14 +145,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1176990128951978394, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
-      propertyPath: viewPoint
-      value: 
-      objectReference: {fileID: 6165502065397323710}
-    - target: {fileID: 1176990128951978394, guid: abeb186619cc7e6419cb81e1e4dfa162,
-        type: 3}
       propertyPath: navMeshAgent
       value: 
       objectReference: {fileID: 5714826435047488815}
+    - target: {fileID: 2019560048712333803, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
+      propertyPath: chaseTime
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2019560048712333803, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
       propertyPath: comunicator
@@ -163,6 +163,16 @@ PrefabInstance:
       propertyPath: navMeshAgent
       value: 
       objectReference: {fileID: 5714826435047488815}
+    - target: {fileID: 3751484280772504296, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751484280772504296, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5075534488604402034, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
       propertyPath: m_Name
@@ -172,6 +182,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: GHOST
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662828329529639414, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6925745739663848697, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
@@ -225,6 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3540391287371809819, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
+    - {fileID: 5662828329529639414, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8527283130708512531, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
     m_AddedGameObjects: []
@@ -234,12 +250,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5121269139941112793}
   m_SourcePrefab: {fileID: 100100000, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
---- !u!65 &6165502065397323710 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 5662828329529639414, guid: abeb186619cc7e6419cb81e1e4dfa162,
-    type: 3}
-  m_PrefabInstance: {fileID: 1947291350560134728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6731122857131226938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5075534488604402034, guid: abeb186619cc7e6419cb81e1e4dfa162,
@@ -259,8 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 5714826435047488815}
-  viewPoint: {fileID: 6165502065397323710}
   investigationTime: 5
+  visionRange: 10
+  visionAngle: 30
+  rayCount: 20
 --- !u!4 &8870712636464259761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6925745739663848697, guid: abeb186619cc7e6419cb81e1e4dfa162,

@@ -13,6 +13,7 @@ public class ChasePlayer : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public float chaseTime;
     float stopChaseCoolDown;
+    float originalStoppingDistance;
 
     List<Transform> lookablePoints = new List<Transform>();
 
@@ -33,17 +34,20 @@ public class ChasePlayer : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("JUGADOR AVISTADO, PROCEDO A PERSEGUIRLO, QUE ME AYUDEN MIS COMPAÑEROS");
+        originalStoppingDistance = navMeshAgent.stoppingDistance;
         enemyComunicator.GoAndChasePlayer();
         playerVisible = true;
         partnerAlert = true;
+        navMeshAgent.SetDestination(player.position);
+        
     }
 
     private void OnDisable()
     {
-        Debug.Log("LO HE PERDIDO, CONTINUO LA PATRULLA");
-        enemyComunicator.StopChasingPlayer();
+        navMeshAgent.stoppingDistance = originalStoppingDistance;
+        //enemyComunicator.StopChasingPlayer();
         stopChaseCoolDown = chaseTime;
-        GetComponent<WaypointPatrol>().enabled = true;
+        //GetComponent<WaypointPatrol>().enabled = true;
         playerVisible = false;
         partnerAlert = false;
     }
@@ -169,17 +173,30 @@ public class ChasePlayer : MonoBehaviour
     {
         DetectSmth();
 
+        if (player.gameObject.GetComponent<PlayerMovement>().IsInvisible())
+        {
+            navMeshAgent.stoppingDistance = originalStoppingDistance * 10;
+        }
+        else
+        {
+            navMeshAgent.stoppingDistance = originalStoppingDistance;
+        }
+
         //Debug.Log($"Yo soy: {this.name}, Puedo ver al jugador: {playerVisible}");
         navMeshAgent.SetDestination(player.position);
         if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
         {
             int rndNumber = Random.Range(0, 100);
 
-            Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
-            GetComponent<Investigate>().enabled = true;
+            Debug.Log(originalStoppingDistance);
+            //Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
+            //GetComponent<Investigate>().enabled = true;
             //GetComponent<Investigate>().GoToPointToInvestigate(transform);
-
-            //if (rndNumber <= 50)
+            Debug.Log("PERDÍ AL JUGADOR, VOY A UN PUNTO CERCANO");
+            ScanLookablePoints();
+            GetComponent<Investigate>().enabled = true;
+            GetComponent<Investigate>().GoToPointToInvestigate(RandomDestination());
+            //if (rndNumber <= 10)
             //{
             //    Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
             //    GetComponent<Investigate>().enabled = true;
@@ -195,7 +212,7 @@ public class ChasePlayer : MonoBehaviour
 
             this.enabled = false;
         }
-        else if (playerVisible)
+        if (playerVisible)
         {
             stopChaseCoolDown = chaseTime;
         }
@@ -205,39 +222,14 @@ public class ChasePlayer : MonoBehaviour
             //Debug.Log(stopChaseCoolDown);
             if (stopChaseCoolDown <= 0.0f)
             {
+                Debug.Log("LO HE PERDIDO, CONTINUO LA PATRULLA");
+                enemyComunicator.StopChasingPlayer();
+                GetComponent<WaypointPatrol>().enabled = true;
                 this.enabled = false;
             }
         }
 
         partnerAlert = false;
 
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        //if (other.transform == player)
-        //{
-        //    enemyComunicator.IseePlayer();
-        //    playerVisible = true;
-        //    Debug.Log("HE VISTO AL JUGADOR");
-        //}
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        //if (other.transform == player)
-        //{
-        //    //enemyComunicator.IseePlayer();
-        //    other.GetComponent<PlayerMovement>().CanHide(false);
-        //    playerVisible = true;
-        //}
-    }
-    void OnTriggerExit(Collider other)
-    {
-        //if (other.transform == player)
-        //{
-        //    playerVisible = false;
-        //    Debug.Log("ESTOY PERDIENDO AL JUGADOR");
-        //}
     }
 }
