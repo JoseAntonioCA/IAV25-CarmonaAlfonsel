@@ -7,6 +7,8 @@ public class Investigate : MonoBehaviour
 {
     Transform player;
     GameManager gameManager;
+    EnemyComunicator enemyComunicator;
+    public GameObject comunicator;
     GameObject objectToDestroy;
 
     Quaternion originalRotation;
@@ -75,6 +77,7 @@ public class Investigate : MonoBehaviour
         }
         stopInvestigationCoolDown = investigationTime;
         navMeshAgent.updateRotation = true;
+        enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
         this.enabled = false;
     }
     private void OnDrawGizmos()
@@ -120,7 +123,9 @@ public class Investigate : MonoBehaviour
             {
                 if (hit.transform == player && !player.gameObject.GetComponent<PlayerMovement>().IsInvisible())
                 {
+                    gameManager.AlertPlayerDetected();
                     GetComponent<ChasePlayer>().enabled = true;
+                    enemyComunicator.GoAndChasePlayer();
                     this.enabled = false;
                 }
             }

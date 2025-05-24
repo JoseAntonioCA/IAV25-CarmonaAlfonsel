@@ -145,6 +145,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1176990128951978394, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
+      propertyPath: comunicator
+      value: 
+      objectReference: {fileID: 2647727048636838607}
+    - target: {fileID: 1176990128951978394, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
       propertyPath: navMeshAgent
       value: 
       objectReference: {fileID: 5714826435047488815}
@@ -268,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e75b0de58e034d44aec0cbb13ec30fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comunicator: {fileID: 2647727048636838607}
   navMeshAgent: {fileID: 5714826435047488815}
   investigationTime: 5
   visionRange: 10

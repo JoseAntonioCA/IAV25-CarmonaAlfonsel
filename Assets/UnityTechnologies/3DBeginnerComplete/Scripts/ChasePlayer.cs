@@ -35,7 +35,6 @@ public class ChasePlayer : MonoBehaviour
     {
         Debug.Log("JUGADOR AVISTADO, PROCEDO A PERSEGUIRLO, QUE ME AYUDEN MIS COMPAÑEROS");
         originalStoppingDistance = navMeshAgent.stoppingDistance;
-        enemyComunicator.GoAndChasePlayer();
         playerVisible = true;
         partnerAlert = true;
         navMeshAgent.SetDestination(player.position);
@@ -132,7 +131,7 @@ public class ChasePlayer : MonoBehaviour
                 {
                     jugadorEncontrado = true;
                     enemyComunicator.IseePlayer();
-                    //hit.collider.gameObject.GetComponent<PlayerMovement>().CanHide(false);
+                    hit.collider.gameObject.GetComponent<PlayerMovement>().CanHide(false);
                     playerVisible = true;
                     //Debug.Log("HE VISTO AL JUGADOR");
                 }
@@ -149,7 +148,7 @@ public class ChasePlayer : MonoBehaviour
     void ScanLookablePoints()
     {
         lookablePoints.Clear();
-        Collider[] colisiones = Physics.OverlapSphere(transform.position, 30.0f);
+        Collider[] colisiones = Physics.OverlapSphere(transform.position, 20.0f);
 
         foreach (Collider col in colisiones)
         {
@@ -184,32 +183,25 @@ public class ChasePlayer : MonoBehaviour
 
         //Debug.Log($"Yo soy: {this.name}, Puedo ver al jugador: {playerVisible}");
         navMeshAgent.SetDestination(player.position);
-        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && player.gameObject.GetComponent<PlayerMovement>().IsInvisible())
         {
             int rndNumber = Random.Range(0, 100);
-
-            Debug.Log(originalStoppingDistance);
-            //Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
-            //GetComponent<Investigate>().enabled = true;
-            //GetComponent<Investigate>().GoToPointToInvestigate(transform);
-            Debug.Log("PERDÍ AL JUGADOR, VOY A UN PUNTO CERCANO");
             ScanLookablePoints();
-            GetComponent<Investigate>().enabled = true;
-            GetComponent<Investigate>().GoToPointToInvestigate(RandomDestination());
-            //if (rndNumber <= 10)
-            //{
-            //    Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
-            //    GetComponent<Investigate>().enabled = true;
-            //    GetComponent<Investigate>().GoToPointToInvestigate(transform);
-            //}
-            //else
-            //{
-            //    Debug.Log("PERDÍ AL JUGADOR, VOY A UN PUNTO CERCANO");
-            //    ScanLookablePoints();
-            //    GetComponent<Investigate>().enabled = true;
-            //    GetComponent<Investigate>().GoToPointToInvestigate(RandomDestination());
-            //}
-
+            enemyComunicator.PartnersSpreadAroundTheArea(lookablePoints);
+            
+            if (rndNumber <= 50)
+            {
+                Debug.Log("MIRO AQUÍ MISMO SI ENCUENTRO AL JUGADOR");
+                GetComponent<Investigate>().enabled = true;
+                GetComponent<Investigate>().GoToPointToInvestigate(transform);
+            }
+            else
+            {
+                Debug.Log("PERDÍ AL JUGADOR, VOY A UN PUNTO CERCANO");
+                GetComponent<Investigate>().enabled = true;
+                GetComponent<Investigate>().GoToPointToInvestigate(RandomDestination());
+            }
+            gameManager.PlayerIsMissing();
             this.enabled = false;
         }
         if (playerVisible)
@@ -223,6 +215,7 @@ public class ChasePlayer : MonoBehaviour
             if (stopChaseCoolDown <= 0.0f)
             {
                 Debug.Log("LO HE PERDIDO, CONTINUO LA PATRULLA");
+                gameManager.PlayerIsMissing();
                 enemyComunicator.StopChasingPlayer();
                 GetComponent<WaypointPatrol>().enabled = true;
                 this.enabled = false;

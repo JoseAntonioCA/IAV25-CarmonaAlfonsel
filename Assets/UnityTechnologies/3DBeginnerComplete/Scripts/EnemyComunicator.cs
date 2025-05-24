@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class EnemyComunicator : MonoBehaviour
 {
-
     List<GameObject> partners;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +17,34 @@ public class EnemyComunicator : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PartnersSpreadAroundTheArea(List<Transform> lookablePoints)
+    {
+        partners.RemoveAll(p => p == null);
+        if (partners.Count > 0)
+        {
+            foreach (GameObject obj in partners)
+            {
+                if (obj.GetComponentInChildren<ChasePlayer>().enabled)
+                    obj.GetComponentInChildren<ChasePlayer>().enabled = false;
+
+                if (!obj.GetComponentInChildren<WaypointPatrol>().enabled && !obj.GetComponentInChildren<Investigate>().enabled)
+                {
+                    obj.GetComponentInChildren<Investigate>().enabled = true;
+                    if (lookablePoints.Count != 0)
+                    {
+                        int index = Random.Range(0, lookablePoints.Count);
+                        obj.GetComponentInChildren<Investigate>().GoToPointToInvestigate(lookablePoints[index]);
+                    }
+                    else
+                    {
+                        obj.GetComponentInChildren<Investigate>().GoToPointToInvestigate(obj.transform);
+
+                    }
+                }
+            }
+        }
     }
 
     public void GoAndChasePlayer()
@@ -42,6 +69,7 @@ public class EnemyComunicator : MonoBehaviour
 
     public void IseePlayer()
     {
+        partners.RemoveAll(p => p == null);
         if (partners.Count > 0)
         {
             foreach (GameObject obj in partners)
@@ -62,6 +90,7 @@ public class EnemyComunicator : MonoBehaviour
 
     public void StopChasingPlayer()
     {
+        partners.RemoveAll(p => p == null);
         if (partners.Count > 0)
         {
             foreach (GameObject obj in partners)

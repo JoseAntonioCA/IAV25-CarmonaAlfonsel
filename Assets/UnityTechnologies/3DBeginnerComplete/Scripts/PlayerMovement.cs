@@ -55,9 +55,16 @@ public class PlayerMovement : MonoBehaviour
         Instantiate (dropableObject, transform.position, transform.rotation);
         remainingDropableObjects--;
     }
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ImInvisible = !ImInvisible;
+        }
+    }
     void FixedUpdate ()
     {
+        
         //Debug.Log(ImInvisible);
         if (!ImInvisible)
         {

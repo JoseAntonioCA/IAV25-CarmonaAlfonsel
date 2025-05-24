@@ -7,6 +7,8 @@ public class WaypointPatrol : MonoBehaviour
 {
     Transform player;
     GameManager gameManager;
+    EnemyComunicator enemyComunicator;
+    public GameObject comunicator;
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
 
@@ -48,6 +50,7 @@ public class WaypointPatrol : MonoBehaviour
             Debug.LogWarning("No se encontró un objeto con la etiqueta 'Player'.");
         }
         navMeshAgent.SetDestination (waypoints[0].position);
+        enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
     }
 
     private void OnDrawGizmos()
@@ -93,7 +96,9 @@ public class WaypointPatrol : MonoBehaviour
             {
                 if (hit.transform == player && !player.gameObject.GetComponent<PlayerMovement>().IsInvisible())
                 {
+                    gameManager.AlertPlayerDetected();
                     GetComponent<ChasePlayer>().enabled = true;
+                    enemyComunicator.GoAndChasePlayer();
                     this.enabled = false;
                 }
                 if (hit.collider.gameObject.CompareTag("PLAYER_ITEM"))
@@ -118,17 +123,6 @@ public class WaypointPatrol : MonoBehaviour
             m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
             this.enabled = false;
             //navMeshAgent.SetDestination (waypoints[m_CurrentWaypointIndex].position);
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PLAYER_ITEM"))
-        {
-            GetComponent<Investigate>().enabled = true;
-            GetComponent<Investigate>().ObjectToDestroy(other.gameObject);
-            GetComponent<Investigate>().GoToPointToInvestigate(other.transform);
-            this.enabled = false;
         }
     }
 }

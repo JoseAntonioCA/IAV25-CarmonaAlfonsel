@@ -21,12 +21,11 @@ public class GameManager : MonoBehaviour
     public float elapsedTime = 0f; // Tiempo transcurrido
     public int gotchas = 0; // Pilladas  
     public int wins = 0; // Ganadas
-
+    
     private GameObject player;
     private CanvasGroup exitBackgroundImageCanvasGroup;
-    private AudioSource exitAudio;
     private CanvasGroup caughtBackgroundImageCanvasGroup;
-    private AudioSource caughtAudio;
+
     private bool m_IsPlayerAtExit;
     private bool m_IsPlayerCaught;
     private float m_Timer = 0.0f;
@@ -35,6 +34,11 @@ public class GameManager : MonoBehaviour
     private Label timeLabel; // Referencia a la etiqueta de UI Toolkit
     private Label gotchasLabel; // Referencia a la etiqueta de UI Toolkit
     private Label winsLabel; // Referencia a la etiqueta de UI Toolkit
+
+    private AudioSource ambientAudio;
+    private AudioSource alertAudio;
+    private AudioSource exitAudio;
+    private AudioSource caughtAudio;
 
     private void Awake()
     {
@@ -85,6 +89,34 @@ public class GameManager : MonoBehaviour
         {
             player.transform.position = start.transform.position;
             player.transform.rotation = start.transform.rotation;
+        }
+
+        GameObject ambientObject = GameObject.FindWithTag("AMBIENT_MUSIC");
+        if (ambientObject != null)
+        {
+            ambientAudio = ambientObject.GetComponent<AudioSource>();
+            if (ambientAudio == null)
+            {
+                Debug.LogWarning("No se encontró un componente 'AudioSource' en el objeto 'AMBIENT_MUSIC' correspondiente.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró un objeto con la etiqueta 'AMBIENT_MUSIC'.");
+        }
+
+        GameObject alertObject = GameObject.FindWithTag("ALERT_MUSIC");
+        if (alertObject != null)
+        {
+            alertAudio = alertObject.GetComponent<AudioSource>();
+            if (alertAudio == null)
+            {
+                Debug.LogWarning("No se encontró un componente 'AudioSource' en el objeto 'ALERT_MUSIC' correspondiente.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró un objeto con la etiqueta 'ALERT_MUSIC'.");
         }
 
         GameObject escapeObject = GameObject.FindWithTag("Escape");
@@ -143,6 +175,8 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("No se encontró un objeto con la etiqueta 'CaughtImage'.");
         }
 
+        ambientAudio.Play();
+
         // Inicializar el texto del cronómetro y los otros textos a cero
         UpdateTimerUI();
         UpdateGotchasUI();
@@ -153,7 +187,18 @@ public class GameManager : MonoBehaviour
     {
 
     }
-     
+
+    public void AlertPlayerDetected()
+    {
+        ambientAudio.Stop();
+        alertAudio.Play();
+    }
+
+    public void PlayerIsMissing()
+    {
+        ambientAudio.Play();
+        alertAudio.Stop();
+    }
 
     private void UpdateTimerUI()
     {

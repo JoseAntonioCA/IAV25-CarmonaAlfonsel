@@ -18,6 +18,8 @@ TagManager:
   - PLAYER_ITEM
   - HIDE_POINT
   - LOOK_POINT
+  - AMBIENT_MUSIC
+  - ALERT_MUSIC
   layers:
   - Default
   - TransparentFX
