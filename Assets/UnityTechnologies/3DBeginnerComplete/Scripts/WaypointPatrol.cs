@@ -112,7 +112,7 @@ public class WaypointPatrol : MonoBehaviour
                 else if (hit.collider.CompareTag("GHOST_CORE") && !hit.collider.gameObject.GetComponent<EnemyHealth>().IsAlive())
                 {
                     ScanLookablePoints();
-                    enemyComunicator.PartnersSpreadAroundTheArea(lookablePoints);
+                    enemyComunicator.PartnerIsUnconciousSpread(lookablePoints);
 
                     Debug.Log("ALIADO CAÍDO, VOY A AYUDARLO, INVESTIGAD LA ZONA");
                     GetComponent<Investigate>().enabled = true;

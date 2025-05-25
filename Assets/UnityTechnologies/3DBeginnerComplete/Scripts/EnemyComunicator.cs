@@ -47,6 +47,34 @@ public class EnemyComunicator : MonoBehaviour
         }
     }
 
+    public void PartnerIsUnconciousSpread(List<Transform> lookablePoints)
+    {
+        partners.RemoveAll(p => p == null);
+        if (partners.Count > 0)
+        {
+            foreach (GameObject obj in partners)
+            {
+
+                if (obj.GetComponentInChildren<WaypointPatrol>().enabled)
+                    obj.GetComponentInChildren<WaypointPatrol>().enabled = false;
+
+                obj.GetComponentInChildren<Investigate>().enabled = true;
+                obj.GetComponentInChildren<Investigate>().ResetTime();
+
+                if (lookablePoints.Count != 0)
+                {
+                    int index = Random.Range(0, lookablePoints.Count);
+                    obj.GetComponentInChildren<Investigate>().GoToPointToInvestigate(lookablePoints[index]);
+                }
+                else
+                {
+                    obj.GetComponentInChildren<Investigate>().GoToPointToInvestigate(obj.transform);
+
+                }
+            }
+        }
+    }
+
     public void GoAndChasePlayer()
     {
         partners.RemoveAll(p => p == null);

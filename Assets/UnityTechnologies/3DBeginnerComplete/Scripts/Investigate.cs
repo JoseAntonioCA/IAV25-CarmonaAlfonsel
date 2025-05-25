@@ -40,7 +40,7 @@ public class Investigate : MonoBehaviour
         stopInvestigationCoolDown = investigationTime;
         //navMeshAgent.updateRotation = true;
     }
-    private void ResetTime()
+    public void ResetTime()
     {
         stopInvestigationCoolDown = investigationTime;
     }
@@ -143,7 +143,7 @@ public class Investigate : MonoBehaviour
                 else if (hit.collider.CompareTag("GHOST_CORE") && !hit.collider.gameObject.GetComponent<EnemyHealth>().IsAlive())
                 {
                     ScanLookablePoints();
-                    enemyComunicator.PartnersSpreadAroundTheArea(lookablePoints);
+                    enemyComunicator.PartnerIsUnconciousSpread(lookablePoints);
                     ResetTime();
 
                     Debug.Log("ALIADO CAÍDO, VOY A AYUDARLO, INVESTIGAD LA ZONA");
