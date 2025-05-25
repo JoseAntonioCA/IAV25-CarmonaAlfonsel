@@ -34,6 +34,7 @@ public class ChasePlayer : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("JUGADOR AVISTADO, PROCEDO A PERSEGUIRLO, QUE ME AYUDEN MIS COMPAÑEROS");
+        //navMeshAgent.updateRotation = true;
         originalStoppingDistance = navMeshAgent.stoppingDistance;
         playerVisible = true;
         partnerAlert = true;

@@ -10,6 +10,9 @@ public class Investigate : MonoBehaviour
     EnemyComunicator enemyComunicator;
     public GameObject comunicator;
     GameObject objectToDestroy;
+    GameObject partnerToRevive;
+
+    List<Transform> lookablePoints = new List<Transform>();
 
     Quaternion originalRotation;
     public NavMeshAgent navMeshAgent;
@@ -20,11 +23,30 @@ public class Investigate : MonoBehaviour
     public float visionRange = 10f;         // Cuánto alcance tiene el cono
     public float visionAngle = 30f;         // Ángulo total del cono
     public int rayCount = 20;               // Cuántos rayos lanzar
-    //public LayerMask obstacleMask;          // Capas a detectar
+                                            //public LayerMask obstacleMask;          // Capas a detectar
 
+    private void OnEnable()
+    {
+        Debug.Log("VOY A INVESTIGAR");
+    }
+    private void OnDisable()
+    {
+        //transform.rotation = originalRotation;
+        Debug.Log("DEJO DE INVESTIGAR");
+
+        if (objectToDestroy != null)
+            Destroy(objectToDestroy);
+
+        stopInvestigationCoolDown = investigationTime;
+        //navMeshAgent.updateRotation = true;
+    }
+    private void ResetTime()
+    {
+        stopInvestigationCoolDown = investigationTime;
+    }
     public void GoToPointToInvestigate(Transform point)
     {
-        originalRotation = transform.rotation;
+        //originalRotation = transform.rotation;
         pointToInvestigate = point;
         navMeshAgent.SetDestination(pointToInvestigate.position);
     }
@@ -33,21 +55,9 @@ public class Investigate : MonoBehaviour
     {
         objectToDestroy = obj;
     }
-
-    private void OnEnable()
+    public void PartnerToRevive(GameObject obj)
     {
-        Debug.Log("VOY A INVESTIGAR");
-        //if (pointToInvestigate != null)
-        //navMeshAgent.updateRotation = false;
-    }
-    private void OnDisable()
-    {
-        transform.rotation = originalRotation;
-        Debug.Log("DEJO DE INVESTIGAR");
-        if (objectToDestroy != null)
-            Destroy(objectToDestroy);
-        stopInvestigationCoolDown = investigationTime;
-        //navMeshAgent.updateRotation = true;
+        partnerToRevive = obj;
     }
 
     void Start()
@@ -76,10 +86,11 @@ public class Investigate : MonoBehaviour
             Debug.LogWarning("No se encontró un objeto con la etiqueta 'Player'.");
         }
         stopInvestigationCoolDown = investigationTime;
-        navMeshAgent.updateRotation = true;
+        //navMeshAgent.updateRotation = true;
         enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
         this.enabled = false;
     }
+
     private void OnDrawGizmos()
     //Metodo para ver el cono de visi�n, dibujando el �ngulo
     //no se hace nada si el angulo es menor que cero
@@ -94,7 +105,8 @@ public class Investigate : MonoBehaviour
             Vector3 dir = Quaternion.Euler(0, angle, 0) * forward;
 
             Ray ray = new Ray(transform.position, dir);
-            if (Physics.Raycast(ray, out RaycastHit hit, visionRange) && hit.transform == player)
+            if (Physics.Raycast(ray, out RaycastHit hit, visionRange) &&
+                (hit.transform == player || (hit.collider.CompareTag("GHOST_CORE") && !hit.collider.gameObject.GetComponent<EnemyHealth>().IsAlive())))
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawLine(transform.position, hit.point);
@@ -128,8 +140,50 @@ public class Investigate : MonoBehaviour
                     enemyComunicator.GoAndChasePlayer();
                     this.enabled = false;
                 }
+                else if (hit.collider.CompareTag("GHOST_CORE") && !hit.collider.gameObject.GetComponent<EnemyHealth>().IsAlive())
+                {
+                    ScanLookablePoints();
+                    enemyComunicator.PartnersSpreadAroundTheArea(lookablePoints);
+                    ResetTime();
+
+                    Debug.Log("ALIADO CAÍDO, VOY A AYUDARLO, INVESTIGAD LA ZONA");
+                    GetComponent<Investigate>().enabled = true;
+                    GetComponent<Investigate>().GoToPointToInvestigate(hit.transform);
+
+                    GetComponent<Investigate>().PartnerToRevive(hit.collider.gameObject);
+                }
+                else if (hit.collider.gameObject.CompareTag("PLAYER_ITEM"))
+                {
+                    GetComponent<Investigate>().enabled = true;
+                    GetComponent<Investigate>().ObjectToDestroy(hit.collider.gameObject);
+                    GetComponent<Investigate>().GoToPointToInvestigate(hit.transform);
+                    this.enabled = false;
+                }
             }
         }
+    }
+
+    void ScanLookablePoints()
+    {
+        lookablePoints.Clear();
+        Collider[] colisiones = Physics.OverlapSphere(transform.position, 20.0f);
+
+        foreach (Collider col in colisiones)
+        {
+            if (col.CompareTag("LOOK_POINT")) // puedes omitir esto si solo usas la capa
+            {
+                lookablePoints.Add(col.transform);
+            }
+        }
+    }
+
+    Transform RandomDestination()
+    {
+        if (lookablePoints.Count == 0) return transform;
+
+        int index = Random.Range(0, lookablePoints.Count);
+
+        return lookablePoints[index];
     }
 
     void Update()
@@ -138,11 +192,20 @@ public class Investigate : MonoBehaviour
 
         if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance * 3)
         {
+
+            if (partnerToRevive != null)
+            {
+                if (partnerToRevive.GetComponent<EnemyHealth>() != null && !partnerToRevive.GetComponent<EnemyHealth>().IsAlive())
+                {
+                    partnerToRevive.GetComponent<EnemyHealth>().Revive();
+                }
+            }
+
             stopInvestigationCoolDown -= Time.deltaTime;
 
             if (stopInvestigationCoolDown <= investigationTime / 2)
             {
-                transform.Rotate(new Vector3(0, 2, 0));
+                //transform.Rotate(new Vector3(0, 2, 0));
             }
 
             if (stopInvestigationCoolDown <= 0.0f)

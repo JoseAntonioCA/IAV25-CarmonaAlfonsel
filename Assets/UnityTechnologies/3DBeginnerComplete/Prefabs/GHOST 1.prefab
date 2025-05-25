@@ -77,9 +77,10 @@ GameObject:
   - component: {fileID: 23729544980337213}
   - component: {fileID: 5714826435047488815}
   - component: {fileID: 4110650954402239032}
+  - component: {fileID: 6423142970038572698}
   m_Layer: 0
   m_Name: GHOST 1
-  m_TagString: Untagged
+  m_TagString: GHOST_CORE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +136,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc53a148155954439d189d0d584f6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &6423142970038572698
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242857190817116118}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1001 &1947291350560134728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,6 +192,11 @@ PrefabInstance:
       propertyPath: navMeshAgent
       value: 
       objectReference: {fileID: 5714826435047488815}
+    - target: {fileID: 3751484280772504296, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3751484280772504296, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
       propertyPath: m_Enabled

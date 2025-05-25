@@ -12,6 +12,8 @@ public class WaypointPatrol : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
 
+    List<Transform> lookablePoints = new List<Transform>();
+
     public float visionRange = 10f;         // Cuánto alcance tiene el cono
     public float visionAngle = 30f;         // Ángulo total del cono
     public int rayCount = 20;               // Cuántos rayos lanzar
@@ -22,6 +24,11 @@ public class WaypointPatrol : MonoBehaviour
     private void OnEnable()
     {
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+    }
+
+    private void OnDisable()
+    {
+        //navMeshAgent.updateRotation = false;
     }
 
     void Start ()
@@ -67,7 +74,8 @@ public class WaypointPatrol : MonoBehaviour
             Vector3 dir = Quaternion.Euler(0, angle, 0) * forward;
 
             Ray ray = new Ray(transform.position, dir);
-            if (Physics.Raycast(ray, out RaycastHit hit, visionRange) && hit.transform == player)
+            if (Physics.Raycast(ray, out RaycastHit hit, visionRange) &&
+                (hit.transform == player || (hit.collider.CompareTag("GHOST_CORE") && !hit.collider.gameObject.GetComponent<EnemyHealth>().IsAlive())))
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawLine(transform.position, hit.point);
@@ -101,7 +109,19 @@ public class WaypointPatrol : MonoBehaviour
                     enemyComunicator.GoAndChasePlayer();
                     this.enabled = false;
                 }
-                if (hit.collider.gameObject.CompareTag("PLAYER_ITEM"))
+                else if (hit.collider.CompareTag("GHOST_CORE") && !hit.collider.gameObject.GetComponent<EnemyHealth>().IsAlive())
+                {
+                    ScanLookablePoints();
+                    enemyComunicator.PartnersSpreadAroundTheArea(lookablePoints);
+
+                    Debug.Log("ALIADO CAÍDO, VOY A AYUDARLO, INVESTIGAD LA ZONA");
+                    GetComponent<Investigate>().enabled = true;
+                    GetComponent<Investigate>().GoToPointToInvestigate(hit.transform);
+
+                    GetComponent<Investigate>().PartnerToRevive(hit.collider.gameObject);
+                    this.enabled = false;
+                }
+                else if (hit.collider.gameObject.CompareTag("PLAYER_ITEM"))
                 {
                     GetComponent<Investigate>().enabled = true;
                     GetComponent<Investigate>().ObjectToDestroy(hit.collider.gameObject);
@@ -110,6 +130,29 @@ public class WaypointPatrol : MonoBehaviour
                 }
             }
         }
+    }
+
+    void ScanLookablePoints()
+    {
+        lookablePoints.Clear();
+        Collider[] colisiones = Physics.OverlapSphere(transform.position, 20.0f);
+
+        foreach (Collider col in colisiones)
+        {
+            if (col.CompareTag("LOOK_POINT")) // puedes omitir esto si solo usas la capa
+            {
+                lookablePoints.Add(col.transform);
+            }
+        }
+    }
+
+    Transform RandomDestination()
+    {
+        if (lookablePoints.Count == 0) return transform;
+
+        int index = Random.Range(0, lookablePoints.Count);
+
+        return lookablePoints[index];
     }
 
     void Update ()

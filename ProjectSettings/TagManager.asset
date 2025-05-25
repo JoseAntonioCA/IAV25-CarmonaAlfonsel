@@ -20,6 +20,7 @@ TagManager:
   - LOOK_POINT
   - AMBIENT_MUSIC
   - ALERT_MUSIC
+  - GHOST_CORE
   layers:
   - Default
   - TransparentFX

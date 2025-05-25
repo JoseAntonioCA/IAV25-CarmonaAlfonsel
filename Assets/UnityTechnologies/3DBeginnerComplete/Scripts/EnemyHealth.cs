@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -25,20 +26,24 @@ public class EnemyHealth : MonoBehaviour
     public void Revive()
     {
         SetAlive(true);
-        GetComponent<WaypointPatrol>().enabled = true;
+        GetComponent<NavMeshAgent>().isStopped = false;
+        GetComponentInChildren<WaypointPatrol>().enabled = true;
+        GetComponentInChildren<Observer>().enabled = true;
     }
 
     public void Kill()
     {
         SetAlive(false);
-        if (GetComponent<WaypointPatrol>().enabled)
+        if (GetComponentInChildren<WaypointPatrol>().enabled)
         {
-            GetComponent<WaypointPatrol>().enabled = false;
+            GetComponentInChildren<WaypointPatrol>().enabled = false;
         }
-        else if (GetComponent<Investigate>().enabled)
+        else if (GetComponentInChildren<Investigate>().enabled)
         {
-            GetComponent<Investigate>().enabled = false;
+            GetComponentInChildren<Investigate>().enabled = false;
         }
+        GetComponentInChildren<Observer>().enabled = false;
+        GetComponent<NavMeshAgent>().isStopped = true;
     }
 
     // Update is called once per frame
