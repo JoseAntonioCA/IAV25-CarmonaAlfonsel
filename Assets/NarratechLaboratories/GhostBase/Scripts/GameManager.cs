@@ -7,6 +7,7 @@
    Modificación del GameEnding original para convertirlo en algo más parecido a un GameManager
 */
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -39,6 +40,9 @@ public class GameManager : MonoBehaviour
     private AudioSource alertAudio;
     private AudioSource exitAudio;
     private AudioSource caughtAudio;
+
+
+    public List<GameObject> enemies = new List<GameObject>();
 
     private void Awake()
     {
@@ -287,6 +291,23 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                //foreach (GameObject obj in enemies)
+                //{
+                //    if (obj.GetComponent<EnemyHealth>() != null)
+                //    {
+                //        if (!obj.GetComponent<EnemyHealth>().IsAlive())
+                //        {
+                //            obj.GetComponent<EnemyHealth>().Revive();
+                //        }
+                //        else
+                //        {
+                //            obj.GetComponentInChildren<ChasePlayer>().enabled = false;
+                //            obj.GetComponentInChildren<Investigate>().enabled = false;
+                //            obj.GetComponentInChildren<WaypointPatrol>().enabled = true;
+                //        }
+                //    }
+                //}
+
                 // No reiniciar significa sumar 1 a las 'ganadas' y volver a cargar la escena, con lo que esta podría ser diferente (por ahora sólo cambia el punto de inicio)
                 m_IsPlayerAtExit = false; // Para que no se repita
                 m_Timer = 0.0f;

@@ -521,6 +521,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &126175999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3242857190817116118, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 947928877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &133523608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1388,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 11400000, guid: 05891a7f5c0a0684c93ecc7c2e7f4b0a, type: 2}
 --- !u!4 &506715710
 Transform:
@@ -3275,9 +3281,29 @@ PrefabInstance:
       objectReference: {fileID: 1916282332}
     - target: {fileID: 5642716984738007026, guid: 3d8158841df6b824eb4a665f82a99938,
         type: 3}
+      propertyPath: enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642716984738007026, guid: 3d8158841df6b824eb4a665f82a99938,
+        type: 3}
       propertyPath: exitImageCanvasGroup
       value: 
       objectReference: {fileID: 1916282332}
+    - target: {fileID: 5642716984738007026, guid: 3d8158841df6b824eb4a665f82a99938,
+        type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1333029923}
+    - target: {fileID: 5642716984738007026, guid: 3d8158841df6b824eb4a665f82a99938,
+        type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 126175999}
+    - target: {fileID: 5642716984738007026, guid: 3d8158841df6b824eb4a665f82a99938,
+        type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 1720216878}
     - target: {fileID: 5642716984738007026, guid: 3d8158841df6b824eb4a665f82a99938,
         type: 3}
       propertyPath: caughtImageCanvasGroup
@@ -3971,6 +3997,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310792045}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1333029923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3242857190817116118, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6145949492512418894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335335146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,6 +5484,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &1720216878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3242857190817116118, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2127692351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1727374249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 186551185268490557, guid: 549c69af39b84624b8a053537c407def,
