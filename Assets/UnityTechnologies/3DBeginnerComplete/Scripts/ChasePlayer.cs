@@ -173,6 +173,8 @@ public class ChasePlayer : MonoBehaviour
     {
         DetectSmth();
 
+        transform.rotation = navMeshAgent.transform.rotation;
+
         if (player.gameObject.GetComponent<PlayerMovement>().IsInvisible())
         {
             navMeshAgent.stoppingDistance = originalStoppingDistance * 10;

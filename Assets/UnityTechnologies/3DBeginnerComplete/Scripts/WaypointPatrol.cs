@@ -158,11 +158,11 @@ public class WaypointPatrol : MonoBehaviour
     void Update ()
     {
         DetectSmth();
-
+        transform.rotation = navMeshAgent.transform.rotation;
         if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
         {
             GetComponent<Investigate>().enabled = true;
-            //GetComponent<Investigate>().GoToPointToInvestigate(waypoints[m_CurrentWaypointIndex]);
+            GetComponent<Investigate>().GoToPointToInvestigate(waypoints[m_CurrentWaypointIndex]);
             m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
             this.enabled = false;
             //navMeshAgent.SetDestination (waypoints[m_CurrentWaypointIndex].position);

@@ -14,7 +14,7 @@ public class Investigate : MonoBehaviour
 
     List<Transform> lookablePoints = new List<Transform>();
 
-    Quaternion originalRotation;
+    Vector3 originalRotation;
     public NavMeshAgent navMeshAgent;
     Transform pointToInvestigate;
     public float investigationTime;
@@ -28,9 +28,11 @@ public class Investigate : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("VOY A INVESTIGAR");
+        //originalRotation = transform.position;
     }
     private void OnDisable()
     {
+        //transform.LookAt(new Vector3 (-1 * originalRotation.x, originalRotation.y, -1 * originalRotation.z));
         //transform.rotation = originalRotation;
         Debug.Log("DEJO DE INVESTIGAR");
 
@@ -46,7 +48,6 @@ public class Investigate : MonoBehaviour
     }
     public void GoToPointToInvestigate(Transform point)
     {
-        //originalRotation = transform.rotation;
         pointToInvestigate = point;
         navMeshAgent.SetDestination(pointToInvestigate.position);
     }
@@ -205,11 +206,13 @@ public class Investigate : MonoBehaviour
 
             if (stopInvestigationCoolDown <= investigationTime / 2)
             {
-                //transform.Rotate(new Vector3(0, 2, 0));
+                transform.Rotate(new Vector3(0, 2, 0));
+                
             }
 
             if (stopInvestigationCoolDown <= 0.0f)
             {
+                //transform.rotation = originalRotation;
                 GetComponent<WaypointPatrol>().enabled = true;
                 this.enabled = false;
             }
