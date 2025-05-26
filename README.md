@@ -30,6 +30,8 @@ Los ESTADOS BÁSICOS, los principales que tienen que estar son los siguientes:
 Adjunto una imagen esquematizada sobre su comportamiento, donde se explica brevemente la transición entre estados de un enemigo (el estado de que le indican de ir a un punto si se lo ordenan no viene representado en el esquema): 
 ![alt text](image.png)
 
+## Video de presentación de la IA de los enemigos
+https://youtu.be/O6ZUCy1LdQ0
 
 ## Pseudo código
 
