@@ -3,44 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Investigate : MonoBehaviour
+public class Investigate : BaseState
 {
-    Transform player;
-    GameManager gameManager;
-    EnemyComunicator enemyComunicator;
-    public GameObject comunicator;
     GameObject objectToDestroy;
     GameObject partnerToRevive;
 
-    List<Transform> lookablePoints = new List<Transform>();
-
-    Vector3 originalRotation;
     public NavMeshAgent navMeshAgent;
     Transform pointToInvestigate;
     public float investigationTime;
     float stopInvestigationCoolDown;
 
-    public float visionRange = 10f;         // Cuánto alcance tiene el cono
-    public float visionAngle = 30f;         // Ángulo total del cono
-    public int rayCount = 20;               // Cuántos rayos lanzar
-                                            //public LayerMask obstacleMask;          // Capas a detectar
-
     private void OnEnable()
     {
         Debug.Log("VOY A INVESTIGAR");
-        //originalRotation = transform.position;
     }
     private void OnDisable()
     {
-        //transform.LookAt(new Vector3 (-1 * originalRotation.x, originalRotation.y, -1 * originalRotation.z));
-        //transform.rotation = originalRotation;
         Debug.Log("DEJO DE INVESTIGAR");
 
         if (objectToDestroy != null)
             Destroy(objectToDestroy);
 
         stopInvestigationCoolDown = investigationTime;
-        //navMeshAgent.updateRotation = true;
     }
     public void ResetTime()
     {
@@ -87,40 +71,11 @@ public class Investigate : MonoBehaviour
             Debug.LogWarning("No se encontró un objeto con la etiqueta 'Player'.");
         }
         stopInvestigationCoolDown = investigationTime;
-        //navMeshAgent.updateRotation = true;
         enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
         this.enabled = false;
     }
 
-    private void OnDrawGizmos()
-    //Metodo para ver el cono de visi�n, dibujando el �ngulo
-    //no se hace nada si el angulo es menor que cero
-    {
-        float halfAngle = visionAngle / 2;
-        Vector3 forward = transform.forward;
-
-        for (int i = 0; i <= rayCount; i++)
-        {
-            float t = i / (float)rayCount;
-            float angle = Mathf.Lerp(-halfAngle, halfAngle, t);
-            Vector3 dir = Quaternion.Euler(0, angle, 0) * forward;
-
-            Ray ray = new Ray(transform.position, dir);
-            if (Physics.Raycast(ray, out RaycastHit hit, visionRange) &&
-                (hit.transform == player || (hit.collider.CompareTag("GHOST_CORE") && !hit.collider.gameObject.GetComponent<EnemyHealth>().IsAlive())))
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(transform.position, hit.point);
-            }
-            else
-            {
-                Gizmos.color = Color.green;
-                Gizmos.DrawRay(transform.position, dir * visionRange);
-            }
-        }
-    }
-
-    private void DetectSmth()
+    public override void DetectSmth()
     {
         float halfAngle = visionAngle / 2;
         Vector3 forward = transform.forward;
@@ -155,36 +110,13 @@ public class Investigate : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.CompareTag("PLAYER_ITEM"))
                 {
+                    ResetTime();
                     GetComponent<Investigate>().enabled = true;
                     GetComponent<Investigate>().ObjectToDestroy(hit.collider.gameObject);
                     GetComponent<Investigate>().GoToPointToInvestigate(hit.transform);
-                    this.enabled = false;
                 }
             }
         }
-    }
-
-    void ScanLookablePoints()
-    {
-        lookablePoints.Clear();
-        Collider[] colisiones = Physics.OverlapSphere(transform.position, 20.0f);
-
-        foreach (Collider col in colisiones)
-        {
-            if (col.CompareTag("LOOK_POINT")) // puedes omitir esto si solo usas la capa
-            {
-                lookablePoints.Add(col.transform);
-            }
-        }
-    }
-
-    Transform RandomDestination()
-    {
-        if (lookablePoints.Count == 0) return transform;
-
-        int index = Random.Range(0, lookablePoints.Count);
-
-        return lookablePoints[index];
     }
 
     void Update()
@@ -212,7 +144,6 @@ public class Investigate : MonoBehaviour
 
             if (stopInvestigationCoolDown <= 0.0f)
             {
-                //transform.rotation = originalRotation;
                 GetComponent<WaypointPatrol>().enabled = true;
                 this.enabled = false;
             }

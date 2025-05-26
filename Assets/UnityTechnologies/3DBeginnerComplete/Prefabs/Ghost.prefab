@@ -465,17 +465,16 @@ GameObject:
   - component: {fileID: 6979926626815036113}
   - component: {fileID: 3751484280772504296}
   - component: {fileID: 8963077223797400650}
-  - component: {fileID: 3540391287371809819}
   - component: {fileID: 1176990128951978394}
   - component: {fileID: 6986812540457888193}
   - component: {fileID: -6930605026617014143}
   - component: {fileID: 6470458792953595253}
   - component: {fileID: 7030153347753183378}
   - component: {fileID: 2019560048712333803}
-  - component: {fileID: 5662828329529639414}
+  - component: {fileID: 2295513564009944732}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: GHOST
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -534,11 +533,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
   m_Height: 1.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.6, z: 0}
@@ -569,28 +568,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &3540391287371809819
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5075534488604402034}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.25
-  m_Speed: 3
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0.2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &1176990128951978394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,11 +580,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87db442af6be8e4a982be8e171e123b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3540391287371809819}
+  player: {fileID: 0}
+  gameManager: {fileID: 0}
+  enemyComunicator: {fileID: 0}
+  comunicator: {fileID: 0}
+  lookablePoints: []
+  visionRange: 10
+  visionAngle: 30
+  rayCount: 20
+  navMeshAgent: {fileID: 0}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  viewPoint: {fileID: 0}
 --- !u!82 &6986812540457888193
 AudioSource:
   m_ObjectHideFlags: 0
@@ -759,29 +743,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9458d5e208be6004ab7cadedd4f913d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3540391287371809819}
-  chaseTime: 5
---- !u!65 &5662828329529639414
-BoxCollider:
+  player: {fileID: 0}
+  gameManager: {fileID: 0}
+  enemyComunicator: {fileID: 0}
+  comunicator: {fileID: 0}
+  lookablePoints: []
+  visionRange: 10
+  visionAngle: 30
+  rayCount: 20
+  navMeshAgent: {fileID: 0}
+  chaseTime: 15
+--- !u!114 &2295513564009944732
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5075534488604402034}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 10}
-  m_Center: {x: 0, y: 0.5, z: 5}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e75b0de58e034d44aec0cbb13ec30fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  gameManager: {fileID: 0}
+  enemyComunicator: {fileID: 0}
+  comunicator: {fileID: 0}
+  lookablePoints: []
+  visionRange: 10
+  visionAngle: 30
+  rayCount: 20
+  navMeshAgent: {fileID: 0}
+  investigationTime: 5
 --- !u!1 &5863192054190611860
 GameObject:
   m_ObjectHideFlags: 0

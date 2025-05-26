@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 30
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3009227962911340927
 MonoBehaviour:
@@ -177,11 +177,11 @@ PrefabInstance:
       propertyPath: navMeshAgent
       value: 
       objectReference: {fileID: 5714826435047488815}
-    - target: {fileID: 2019560048712333803, guid: abeb186619cc7e6419cb81e1e4dfa162,
+    - target: {fileID: 1176990128951978394, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
-      propertyPath: chaseTime
-      value: 15
-      objectReference: {fileID: 0}
+      propertyPath: enemyComunicator
+      value: 
+      objectReference: {fileID: 3009227962911340927}
     - target: {fileID: 2019560048712333803, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
       propertyPath: comunicator
@@ -192,35 +192,30 @@ PrefabInstance:
       propertyPath: navMeshAgent
       value: 
       objectReference: {fileID: 5714826435047488815}
-    - target: {fileID: 3751484280772504296, guid: abeb186619cc7e6419cb81e1e4dfa162,
+    - target: {fileID: 2019560048712333803, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751484280772504296, guid: abeb186619cc7e6419cb81e1e4dfa162,
+      propertyPath: enemyComunicator
+      value: 
+      objectReference: {fileID: 3009227962911340927}
+    - target: {fileID: 2295513564009944732, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751484280772504296, guid: abeb186619cc7e6419cb81e1e4dfa162,
+      propertyPath: comunicator
+      value: 
+      objectReference: {fileID: 2647727048636838607}
+    - target: {fileID: 2295513564009944732, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: navMeshAgent
+      value: 
+      objectReference: {fileID: 5714826435047488815}
+    - target: {fileID: 2295513564009944732, guid: abeb186619cc7e6419cb81e1e4dfa162,
+        type: 3}
+      propertyPath: enemyComunicator
+      value: 
+      objectReference: {fileID: 3009227962911340927}
     - target: {fileID: 5075534488604402034, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
       propertyPath: m_Name
       value: Ghost
-      objectReference: {fileID: 0}
-    - target: {fileID: 5075534488604402034, guid: abeb186619cc7e6419cb81e1e4dfa162,
-        type: 3}
-      propertyPath: m_TagString
-      value: GHOST
-      objectReference: {fileID: 0}
-    - target: {fileID: 5662828329529639414, guid: abeb186619cc7e6419cb81e1e4dfa162,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6925745739663848697, guid: abeb186619cc7e6419cb81e1e4dfa162,
         type: 3}
@@ -272,42 +267,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3540391287371809819, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
-    - {fileID: 5662828329529639414, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 8527283130708512531, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5075534488604402034, guid: abeb186619cc7e6419cb81e1e4dfa162,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5121269139941112793}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abeb186619cc7e6419cb81e1e4dfa162, type: 3}
---- !u!1 &6731122857131226938 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5075534488604402034, guid: abeb186619cc7e6419cb81e1e4dfa162,
-    type: 3}
-  m_PrefabInstance: {fileID: 1947291350560134728}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5121269139941112793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731122857131226938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e75b0de58e034d44aec0cbb13ec30fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comunicator: {fileID: 2647727048636838607}
-  navMeshAgent: {fileID: 5714826435047488815}
-  investigationTime: 5
-  visionRange: 10
-  visionAngle: 30
-  rayCount: 20
 --- !u!4 &8870712636464259761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6925745739663848697, guid: abeb186619cc7e6419cb81e1e4dfa162,

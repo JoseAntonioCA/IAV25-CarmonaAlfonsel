@@ -1,29 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChasePlayer : MonoBehaviour
+public class ChasePlayer : BaseState
 {
-    Transform player;
-    GameManager gameManager;
-    EnemyComunicator enemyComunicator;
-    public GameObject comunicator;
     public NavMeshAgent navMeshAgent;
     public float chaseTime;
     float stopChaseCoolDown;
     float originalStoppingDistance;
 
-    List<Transform> lookablePoints = new List<Transform>();
-
     bool playerVisible;
     bool partnerAlert;
-
-    public float visionRange = 10f;         // Cuánto alcance tiene el cono
-    public float visionAngle = 30f;         // Ángulo total del cono
-    public int rayCount = 20;               // Cuántos rayos lanzar
-    //public LayerMask obstacleMask;          // Capas a detectar
 
     public void SeePlayer(bool see)
     {
@@ -34,7 +24,6 @@ public class ChasePlayer : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("JUGADOR AVISTADO, PROCEDO A PERSEGUIRLO, QUE ME AYUDEN MIS COMPAÑEROS");
-        //navMeshAgent.updateRotation = true;
         originalStoppingDistance = navMeshAgent.stoppingDistance;
         playerVisible = true;
         partnerAlert = true;
@@ -45,9 +34,7 @@ public class ChasePlayer : MonoBehaviour
     private void OnDisable()
     {
         navMeshAgent.stoppingDistance = originalStoppingDistance;
-        //enemyComunicator.StopChasingPlayer();
         stopChaseCoolDown = chaseTime;
-        //GetComponent<WaypointPatrol>().enabled = true;
         playerVisible = false;
         partnerAlert = false;
     }
@@ -84,34 +71,7 @@ public class ChasePlayer : MonoBehaviour
         this.enabled = false;
     }
 
-    private void OnDrawGizmos()
-    //Metodo para ver el cono de visi�n, dibujando el �ngulo
-    //no se hace nada si el angulo es menor que cero
-    {
-        float halfAngle = visionAngle / 2;
-        Vector3 forward = transform.forward;
-
-        for (int i = 0; i <= rayCount; i++)
-        {
-            float t = i / (float)rayCount;
-            float angle = Mathf.Lerp(-halfAngle, halfAngle, t);
-            Vector3 dir = Quaternion.Euler(0, angle, 0) * forward;
-
-            Ray ray = new Ray(transform.position, dir);
-            if (Physics.Raycast(ray, out RaycastHit hit, visionRange) && hit.transform == player)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(transform.position, hit.point);
-            }
-            else
-            {
-                Gizmos.color = Color.green;
-                Gizmos.DrawRay(transform.position, dir * visionRange);
-            }
-        }
-    }
-
-    private void DetectSmth()
+    public override void DetectSmth()
     {
         float halfAngle = visionAngle / 2;
         Vector3 forward = transform.forward;
@@ -146,29 +106,6 @@ public class ChasePlayer : MonoBehaviour
         }
     }
 
-    void ScanLookablePoints()
-    {
-        lookablePoints.Clear();
-        Collider[] colisiones = Physics.OverlapSphere(transform.position, 20.0f);
-
-        foreach (Collider col in colisiones)
-        {
-            if (col.CompareTag("LOOK_POINT")) // puedes omitir esto si solo usas la capa
-            {
-                lookablePoints.Add(col.transform);
-            }
-        }
-    }
-
-    Transform RandomDestination()
-    {
-        if (lookablePoints.Count == 0) return transform;
-
-        int index = Random.Range(0, lookablePoints.Count);
-
-        return lookablePoints[index];
-    }
-
     void Update()
     {
         DetectSmth();
@@ -184,7 +121,6 @@ public class ChasePlayer : MonoBehaviour
             navMeshAgent.stoppingDistance = originalStoppingDistance;
         }
 
-        //Debug.Log($"Yo soy: {this.name}, Puedo ver al jugador: {playerVisible}");
         navMeshAgent.SetDestination(player.position);
         if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && player.gameObject.GetComponent<PlayerMovement>().IsInvisible())
         {
@@ -214,7 +150,6 @@ public class ChasePlayer : MonoBehaviour
         else if (!playerVisible)
         {
             stopChaseCoolDown -= Time.deltaTime;
-            //Debug.Log(stopChaseCoolDown);
             if (stopChaseCoolDown <= 0.0f)
             {
                 Debug.Log("LO HE PERDIDO, CONTINUO LA PATRULLA");
