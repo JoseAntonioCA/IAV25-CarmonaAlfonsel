@@ -1,3 +1,7 @@
+## Aclaraciones de la build
+
+La build es ejecutable y funcional, pero es mejor en todo caso jugar desde el propio proyecto de Unity y no desde la build, por si falla algo o la IA no se comporta como es debido, además para ver todo con más detalle.
+
 ## Documentación
 Metal Gear Solid es un famoso juego de Play Station donde el principal motor del gameplay es el sigilo y la infiltración. En este proyecto final vamos a crear algo parecido a lo que se ve en el juego para la IA de los enemigos.
 
