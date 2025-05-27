@@ -9,6 +9,13 @@ Tenemos los siguientes puntos a considerar:
 
 3) Los enemigos estarán controlados por IA y tendrán diferentes comportamientos gestionados por una "pseudomáquina de estados" (en realidad tan solo pasa de un script a otro si en un script cumple una función determinada para transicionar), y también están en todo momento atentos por escuchar las órdenes del resto de compañeros gracias a un radar.
 
+## Controles
+
+Movimiento: WASD/Flechas teclado
+Atacar: Tecla Espacio
+Soltar objeto: Tecla Q
+Intentar esconderse en un armario: Tan solo hay que meterse dentro de ellos sin que te vean
+
 ## Enemigos
 
 El comportamiento básico de un enemigo es que se dedica a patrullar primero. Cuando llega a un punto del patrullaje se queda investigando, y luego vuelve a la patrulla. Si encuentra un objeto raro tirado en el suelo se quedará investigandolo, y luego lo eliminará, pero si se encuentra a un compañero caído, llama a otros compañeros cerca suya para que se repartan por la zona a puntos cercanos a ver si encuentran algo. Reanima al compañero mientras se queda en el mismo punto investigando.
@@ -31,6 +38,9 @@ Adjunto una imagen esquematizada sobre su comportamiento, donde se explica breve
 ![alt text](image.png)
 
 ## Video de presentación de la IA de los enemigos
+
+Aviso de que la velocidad alta del jugador era para hacer las pruebas más fáciles (y que puede atravesar paredes por ello)
+
 https://youtu.be/O6ZUCy1LdQ0
 
 ## Pseudo código
