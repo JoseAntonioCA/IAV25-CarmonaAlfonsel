@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{fae9e881-2c88-4f0d-a10f-0993ccba4040}">
+		<property name="assetPath">
+			<value>06. Encounter.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>141.1395918367347</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7c952712-a087-4d39-8e42-018ffcf8a421}</destination>
+		</relationship>
+	</object>
+</objects>

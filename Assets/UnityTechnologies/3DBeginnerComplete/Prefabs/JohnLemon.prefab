@@ -956,6 +956,7 @@ GameObject:
   - component: {fileID: 355967702596757054}
   - component: {fileID: 685090927300085920}
   - component: {fileID: -5246322750640800662}
+  - component: {fileID: -6661345214335908884}
   m_Layer: 0
   m_Name: JohnLemon
   m_TagString: Player
@@ -1153,7 +1154,22 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+  AttackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6d1c8ab0-09b0-49c3-af46-53a32b60664e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  john: {fileID: 0}
+  dropableObject: {fileID: 0}
+  collider: {fileID: 0}
   turnSpeed: 20
+  movementSpeed: 0
+  attackRange: 0
+  maxNumberDropableObjects: 0
 --- !u!82 &355967702596757054
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1298,6 +1314,20 @@ MonoBehaviour:
       Version: 
   gizmoViewMode: 0
   showBehaviorDesignerGizmo: 0
+--- !u!114 &-6661345214335908884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077229646317852079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &7028247037451646163
 GameObject:
   m_ObjectHideFlags: 0
