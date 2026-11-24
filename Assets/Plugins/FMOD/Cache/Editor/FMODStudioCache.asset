@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7799968576922002620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Musica.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/output build/Desktop/Musica.bank
+  Name: Musica
+  StudioPath: bank:/Musica
+  lastModified: 639311390728920715
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3566413560939804264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,10 +53,10 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639311378970154333
+  lastModified: 639311384442529122
   FileSizes:
   - Name: 
-    Value: 876
+    Value: 932
   Exists: 1
 --- !u!114 &-1125282324392891471
 MonoBehaviour:
@@ -86,14 +104,13 @@ MonoBehaviour:
     Data3: -1484188998
     Data4: -7359072
   Banks:
-  - {fileID: 4420385185034145619}
-  - {fileID: 4996830392788695232}
+  - {fileID: 2578650521846947732}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 15
   Length: 13096
 --- !u!114 &-167519488194185607
 MonoBehaviour:
@@ -127,24 +144,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1162272293920383781}
-  - {fileID: 4420385185034145619}
   - {fileID: 4996830392788695232}
+  - {fileID: 2578650521846947732}
+  - {fileID: -7799968576922002620}
   EditorEvents:
-  - {fileID: 3279106767252586871}
   - {fileID: -680749581382582394}
+  - {fileID: 1010374880223902878}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4996830392788695232}
   StringsBanks:
   - {fileID: -1162272293920383781}
   cacheVersion: 131861
-  cacheTime: 639311378970154333
+  cacheTime: 639311390728920715
   SerializableEventsDict:
-  - key: event:/evento 1
-    index: 0
   - key: event:/Pasos Enemigo
+    index: 0
+  - key: event:/Musica Ambiente
     index: 1
---- !u!114 &3279106767252586871
+--- !u!114 &1010374880223902878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,24 +172,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/evento 1
+  m_Name: event:/Musica Ambiente
   m_EditorClassIdentifier: 
-  Path: event:/evento 1
+  Path: event:/Musica Ambiente
   Guid:
-    Data1: 329896488
-    Data2: 1316505933
-    Data3: -965919830
-    Data4: 2015433202
+    Data1: 781638849
+    Data2: 1161699054
+    Data3: -257305931
+    Data4: 1679230087
   Banks:
-  - {fileID: 4420385185034145619}
-  IsStream: 0
+  - {fileID: -7799968576922002620}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
---- !u!114 &4420385185034145619
+  Length: 191712
+--- !u!114 &2578650521846947732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,12 +199,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Banco 1.bank
+  m_Name: bank:/Enemigos.bank
   m_EditorClassIdentifier: 
-  Path: FMOD/output build/Desktop/Banco 1.bank
-  Name: Banco 1
-  StudioPath: bank:/Banco 1
-  lastModified: 639311378969808942
+  Path: FMOD/output build/Desktop/Enemigos.bank
+  Name: Enemigos
+  StudioPath: bank:/Enemigos
+  lastModified: 639311390728679107
   FileSizes: []
   Exists: 1
 --- !u!114 &4996830392788695232
@@ -204,7 +222,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639311378970107394
+  lastModified: 639311384442513946
   FileSizes: []
   Exists: 1
 --- !u!114 &6235865349132445775

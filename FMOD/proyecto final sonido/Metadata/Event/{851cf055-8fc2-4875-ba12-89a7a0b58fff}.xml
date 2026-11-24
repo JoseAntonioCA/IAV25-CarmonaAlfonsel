@@ -33,7 +33,6 @@
 		</relationship>
 		<relationship name="banks">
 			<destination>{476bd0fe-106f-44c4-9585-50319732d963}</destination>
-			<destination>{de267c76-c023-410d-9db6-18e213731ad8}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{c64b574a-8b09-47ab-b15e-4ac77a673220}">
@@ -59,7 +58,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{dbc35039-92af-4302-a031-7ad159a72eac}">
 		<property name="maximumDistance">
-			<value>50</value>
+			<value>15</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{d1212af7-19a2-4a44-9404-b928ab203b14}" />
@@ -97,6 +96,9 @@
 		<property name="length">
 			<value>13.096054421768706</value>
 		</property>
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{291e5b45-0222-47e6-92de-23995ebea6e9}</destination>
 		</relationship>
@@ -132,7 +134,7 @@
 	<object class="MixerBusFader" id="{b76a7f8f-204a-4bdf-bc44-a7221eba7e46}" />
 	<object class="SpatialiserEffect" id="{ee387d4b-80f5-4ae1-a3ac-3ae7871600ec}">
 		<property name="maximumDistance">
-			<value>50</value>
+			<value>15</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{a7cdab4a-b741-496a-97aa-b3e3b081626d}" />

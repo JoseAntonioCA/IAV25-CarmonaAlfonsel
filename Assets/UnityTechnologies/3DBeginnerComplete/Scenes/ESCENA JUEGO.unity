@@ -440,22 +440,22 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -2061701035
-      Data2: 1215664066
-      Data3: -1484188998
-      Data4: -7359072
-    Path: event:/04. Cavern
+      Data1: 781638849
+      Data2: 1161699054
+      Data3: -257305931
+      Data4: 1679230087
+    Path: event:/Musica Ambiente
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 50
+  OverrideMaxDistance: 20
 --- !u!1 &126175999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3242857190817116118, guid: 78505dcdeb8a03f44a9badac28c88bf8,
@@ -1295,43 +1295,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580591355}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &607481310 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6731122857131226938, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-    type: 3}
-  m_PrefabInstance: {fileID: 2127692351}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &607481312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607481310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1 &620626349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3674741052935752607, guid: 549c69af39b84624b8a053537c407def,
@@ -2455,15 +2418,52 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventPlayTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Pasos Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -2061701035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1215664066
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1484188998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -7359072
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8930655474658803593, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
+    - {fileID: 1846602049976478612, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6731122857131226938, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1540877813}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
 --- !u!1 &1000678840
 GameObject:
@@ -4539,43 +4539,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1440621315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1540877811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6731122857131226938, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-    type: 3}
-  m_PrefabInstance: {fileID: 947928877}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1540877813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540877811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1 &1574468053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1288536327849997621, guid: 549c69af39b84624b8a053537c407def,
@@ -5769,15 +5732,52 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventPlayTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Pasos Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -2061701035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1215664066
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1484188998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -7359072
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8930655474658803593, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
+    - {fileID: 1846602049976478612, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6731122857131226938, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 607481312}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
 --- !u!4 &2127692352 stripped
 Transform:
@@ -5899,7 +5899,48 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventPlayTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Pasos Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -2061701035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1215664066
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1484188998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -7359072
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1846602049976478612, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
