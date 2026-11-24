@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     Animator m_Animator;
     Rigidbody m_Rigidbody;
-    AudioSource m_AudioSource;
+    StudioEventEmitter m_AudioSource;
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         remainingDropableObjects = maxNumberDropableObjects;
         m_Animator = GetComponent<Animator> ();
         m_Rigidbody = GetComponent<Rigidbody> ();
-        m_AudioSource = GetComponent<AudioSource> ();
+        m_AudioSource = GetComponent<StudioEventEmitter> ();
         
         MoveAction.Enable();
     }
@@ -179,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isWalking)
         {
-            if (!m_AudioSource.isPlaying)
+            if (!m_AudioSource.IsPlaying())
             {
                 m_AudioSource.Play();
             }

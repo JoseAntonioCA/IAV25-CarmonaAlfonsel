@@ -7,6 +7,7 @@
    Modificación del GameEnding original para convertirlo en algo más parecido a un GameManager
 */
 
+using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,10 +37,10 @@ public class GameManager : MonoBehaviour
     private Label gotchasLabel; // Referencia a la etiqueta de UI Toolkit
     private Label winsLabel; // Referencia a la etiqueta de UI Toolkit
 
-    private AudioSource ambientAudio;
-    private AudioSource alertAudio;
-    private AudioSource exitAudio;
-    private AudioSource caughtAudio;
+    [SerializeField] private StudioEventEmitter ambientAudio;
+    [SerializeField] private StudioEventEmitter alertAudio;
+    [SerializeField] private StudioEventEmitter exitAudio;
+    [SerializeField] private StudioEventEmitter caughtAudio;
 
 
     public List<GameObject> enemies = new List<GameObject>();
@@ -98,7 +99,7 @@ public class GameManager : MonoBehaviour
         GameObject ambientObject = GameObject.FindWithTag("AMBIENT_MUSIC");
         if (ambientObject != null)
         {
-            ambientAudio = ambientObject.GetComponent<AudioSource>();
+            ambientAudio = ambientObject.GetComponent<StudioEventEmitter>();
             if (ambientAudio == null)
             {
                 Debug.LogWarning("No se encontró un componente 'AudioSource' en el objeto 'AMBIENT_MUSIC' correspondiente.");
@@ -112,7 +113,7 @@ public class GameManager : MonoBehaviour
         GameObject alertObject = GameObject.FindWithTag("ALERT_MUSIC");
         if (alertObject != null)
         {
-            alertAudio = alertObject.GetComponent<AudioSource>();
+            alertAudio = alertObject.GetComponent<StudioEventEmitter>();
             if (alertAudio == null)
             {
                 Debug.LogWarning("No se encontró un componente 'AudioSource' en el objeto 'ALERT_MUSIC' correspondiente.");
@@ -126,7 +127,7 @@ public class GameManager : MonoBehaviour
         GameObject escapeObject = GameObject.FindWithTag("Escape");
         if (escapeObject != null)
         {
-            exitAudio = escapeObject.GetComponent<AudioSource>();
+            exitAudio = escapeObject.GetComponent<StudioEventEmitter>();
             if (exitAudio == null)
             {
                 Debug.LogWarning("No se encontró un componente 'AudioSource' en el objeto 'Escape' correspondiente.");
@@ -140,7 +141,7 @@ public class GameManager : MonoBehaviour
         GameObject caughtObject = GameObject.FindWithTag("Caught");
         if (caughtObject != null)
         {
-            caughtAudio = caughtObject.GetComponent<AudioSource>();
+            caughtAudio = caughtObject.GetComponent<StudioEventEmitter>();
             if (caughtAudio == null)
             {
                 Debug.LogWarning("No se encontró un componente 'AudioSource' en el objeto 'Caught' correspondiente.");
@@ -264,7 +265,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
+    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart, StudioEventEmitter audioSource)
     {
         if (!m_HasAudioPlayed)
         {

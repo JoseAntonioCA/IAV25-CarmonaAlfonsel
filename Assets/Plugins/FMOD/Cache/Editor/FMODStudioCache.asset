@@ -35,10 +35,10 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639310591693397855
+  lastModified: 639311378970154333
   FileSizes:
   - Name: 
-    Value: 872
+    Value: 876
   Exists: 1
 --- !u!114 &-1125282324392891471
 MonoBehaviour:
@@ -67,6 +67,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-680749581382582394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Pasos Enemigo
+  m_EditorClassIdentifier: 
+  Path: event:/Pasos Enemigo
+  Guid:
+    Data1: -2061701035
+    Data2: 1215664066
+    Data3: -1484188998
+    Data4: -7359072
+  Banks:
+  - {fileID: 4420385185034145619}
+  - {fileID: 4996830392788695232}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 50
+  Length: 13096
 --- !u!114 &-167519488194185607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,18 +131,18 @@ MonoBehaviour:
   - {fileID: 4996830392788695232}
   EditorEvents:
   - {fileID: 3279106767252586871}
-  - {fileID: 7220902388479218406}
+  - {fileID: -680749581382582394}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4996830392788695232}
   StringsBanks:
   - {fileID: -1162272293920383781}
   cacheVersion: 131861
-  cacheTime: 639310591693981277
+  cacheTime: 639311378970154333
   SerializableEventsDict:
   - key: event:/evento 1
     index: 0
-  - key: event:/04. Cavern
+  - key: event:/Pasos Enemigo
     index: 1
 --- !u!114 &3279106767252586871
 MonoBehaviour:
@@ -158,7 +186,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Banco 1.bank
   Name: Banco 1
   StudioPath: bank:/Banco 1
-  lastModified: 639310591693981277
+  lastModified: 639311378969808942
   FileSizes: []
   Exists: 1
 --- !u!114 &4996830392788695232
@@ -176,7 +204,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639310591693357753
+  lastModified: 639311378970107394
   FileSizes: []
   Exists: 1
 --- !u!114 &6235865349132445775
@@ -197,31 +225,3 @@ MonoBehaviour:
   lastModified: 639310579588556781
   FileSizes: []
   Exists: 1
---- !u!114 &7220902388479218406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/04. Cavern
-  m_EditorClassIdentifier: 
-  Path: event:/04. Cavern
-  Guid:
-    Data1: -2061701035
-    Data2: 1215664066
-    Data3: -1484188998
-    Data4: -7359072
-  Banks:
-  - {fileID: 4420385185034145619}
-  - {fileID: 4996830392788695232}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 191712

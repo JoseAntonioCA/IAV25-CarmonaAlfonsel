@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{851cf055-8fc2-4875-ba12-89a7a0b58fff}">
 		<property name="name">
-			<value>04. Cavern</value>
+			<value>Pasos Enemigo</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -57,11 +57,15 @@
 			<destination>{f83d9711-93a9-4dbc-8dd9-162d499877f9}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{dbc35039-92af-4302-a031-7ad159a72eac}" />
+	<object class="EventAutomatableProperties" id="{dbc35039-92af-4302-a031-7ad159a72eac}">
+		<property name="maximumDistance">
+			<value>50</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{d1212af7-19a2-4a44-9404-b928ab203b14}" />
 	<object class="GroupTrack" id="{dd0f0741-f0bc-4935-9f6b-71cb5c080cbf}">
 		<relationship name="modules">
-			<destination>{d556c3c6-27d9-41db-a1f2-fdf469fb3331}</destination>
+			<destination>{7a79feef-a003-43e6-af1f-fb3d8338fb9b}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{ac90971b-777c-4978-a602-d3b36af7c59f}</destination>
@@ -69,7 +73,7 @@
 	</object>
 	<object class="Timeline" id="{77ee6fe8-04ef-4999-83ea-079507f0a8ce}">
 		<relationship name="modules">
-			<destination>{d556c3c6-27d9-41db-a1f2-fdf469fb3331}</destination>
+			<destination>{7a79feef-a003-43e6-af1f-fb3d8338fb9b}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{92f13a82-040a-4996-a730-c6c84dcd2e4c}">
@@ -89,12 +93,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{60cf8292-ffd4-4627-9ce1-d71fdac97739}" />
-	<object class="SingleSound" id="{d556c3c6-27d9-41db-a1f2-fdf469fb3331}">
+	<object class="SingleSound" id="{7a79feef-a003-43e6-af1f-fb3d8338fb9b}">
 		<property name="length">
-			<value>191.7126530612245</value>
+			<value>13.096054421768706</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{f277fc04-0c81-4444-8db6-18b34ef8bf41}</destination>
+			<destination>{291e5b45-0222-47e6-92de-23995ebea6e9}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{ac90971b-777c-4978-a602-d3b36af7c59f}">
@@ -126,6 +130,10 @@
 	</object>
 	<object class="MixerBusPanner" id="{a1aef5d4-c435-4653-bd18-8b88d8ec3f0b}" />
 	<object class="MixerBusFader" id="{b76a7f8f-204a-4bdf-bc44-a7221eba7e46}" />
-	<object class="SpatialiserEffect" id="{ee387d4b-80f5-4ae1-a3ac-3ae7871600ec}" />
+	<object class="SpatialiserEffect" id="{ee387d4b-80f5-4ae1-a3ac-3ae7871600ec}">
+		<property name="maximumDistance">
+			<value>50</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{a7cdab4a-b741-496a-97aa-b3e3b081626d}" />
 </objects>
