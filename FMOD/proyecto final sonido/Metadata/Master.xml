@@ -16,6 +16,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{de6c5591-ee8a-4e6e-b76f-86d5b3d76f27}">
 		<relationship name="effects">
+			<destination>{a363fd3e-d62e-4d00-b5b7-859f58a9de2e}</destination>
 			<destination>{9c9f9257-7bdd-4434-8982-b9d158c69c3d}</destination>
 		</relationship>
 	</object>
@@ -24,5 +25,21 @@
 			<value>2</value>
 		</property>
 	</object>
+	<object class="SFXReverbEffect" id="{a363fd3e-d62e-4d00-b5b7-859f58a9de2e}">
+		<property name="decayTime">
+			<value>300</value>
+		</property>
+		<property name="wetLevel">
+			<value>-80</value>
+		</property>
+		<relationship name="automators">
+			<destination>{f075c0da-5c4c-4a76-b945-61094e407689}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{9c9f9257-7bdd-4434-8982-b9d158c69c3d}" />
+	<object class="Automator" id="{f075c0da-5c4c-4a76-b945-61094e407689}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>wetLevel</value>
+		</property>
+	</object>
 </objects>

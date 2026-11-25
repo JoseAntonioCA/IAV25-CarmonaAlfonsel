@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+    [SerializeField] private StudioEventEmitter audioEscondite;
+
     void Start ()
     {
         hideButtonPressed = false;
@@ -223,6 +225,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("ME PUEDO ESCONDER");
                 ImInvisible = true;
+                audioEscondite.Play();
             }
             else if (!canHide)
             {
@@ -238,6 +241,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 ImInvisible = false;
                 this.gameObject.isStatic = true;
+                audioEscondite.Stop();
             }
         }
     }

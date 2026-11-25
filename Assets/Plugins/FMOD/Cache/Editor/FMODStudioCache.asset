@@ -97,10 +97,10 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639312132716409557
+  lastModified: 639312251063693548
   FileSizes:
   - Name: 
-    Value: 1104
+    Value: 1154
   Exists: 1
 --- !u!114 &-1125282324392891471
 MonoBehaviour:
@@ -197,13 +197,14 @@ MonoBehaviour:
   - {fileID: -680749581382582394}
   - {fileID: 1010374880223902878}
   - {fileID: 2311576539327076011}
+  - {fileID: 2364206052820782155}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4996830392788695232}
   StringsBanks:
   - {fileID: -1162272293920383781}
   cacheVersion: 131861
-  cacheTime: 639312132716662200
+  cacheTime: 639312251063693548
   SerializableEventsDict:
   - key: event:/Pasos Enemigo
     index: 0
@@ -211,6 +212,8 @@ MonoBehaviour:
     index: 1
   - key: event:/Pasos
     index: 2
+  - key: snapshot:/Escondido
+    index: 3
 --- !u!114 &1010374880223902878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +269,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 460
+--- !u!114 &2364206052820782155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Escondido
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Escondido
+  Guid:
+    Data1: 218007917
+    Data2: 1113018373
+    Data3: -30167910
+    Data4: -1280276124
+  Banks:
+  - {fileID: 4996830392788695232}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &2578650521846947732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +347,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639312132716404497
+  lastModified: 639312251063683522
   FileSizes: []
   Exists: 1
 --- !u!114 &6235865349132445775

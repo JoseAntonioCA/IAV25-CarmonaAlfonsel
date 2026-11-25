@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{cfa94f51-181e-49d1-874e-990fbfdeefde}">
+		<property name="name">
+			<value>HiddenState_ReverbAmount</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8fa74bea-9294-43c3-9477-0a0fe242b1a8}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{381e0d6a-f4ed-4518-a792-138783ca3a7d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{381e0d6a-f4ed-4518-a792-138783ca3a7d}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
