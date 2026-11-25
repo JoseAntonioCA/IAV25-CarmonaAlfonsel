@@ -41,7 +41,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Musica.bank
   Name: Musica
   StudioPath: bank:/Musica
-  lastModified: 639312115081388932
+  lastModified: 639312287979762994
   FileSizes: []
   Exists: 1
 --- !u!114 &-3566413560939804264
@@ -79,7 +79,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Common SFX.bank
   Name: Common SFX
   StudioPath: bank:/Common SFX
-  lastModified: 639312132716662200
+  lastModified: 639312287979944505
   FileSizes: []
   Exists: 1
 --- !u!114 &-1162272293920383781
@@ -204,7 +204,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1162272293920383781}
   cacheVersion: 131861
-  cacheTime: 639312281924173927
+  cacheTime: 639312287979944505
   SerializableEventsDict:
   - key: event:/Pasos Enemigo
     index: 0
