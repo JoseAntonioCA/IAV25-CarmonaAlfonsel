@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public CapsuleCollider collider;
 
     public float turnSpeed;
-    public float movementSpeed;
+    private float movementSpeed;
+    public float walkingSpeed;
+    public float runningSpeed;
     public float attackRange;
 
     public int maxNumberDropableObjects;
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         m_Animator = GetComponent<Animator> ();
         m_Rigidbody = GetComponent<Rigidbody> ();
         m_AudioSource = GetComponent<StudioEventEmitter> ();
+        movementSpeed = walkingSpeed;
         
         MoveAction.Enable();
     }
@@ -156,6 +159,17 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Q) && remainingDropableObjects <= 0)
         {
             Debug.Log("NO ME QUEDAN OBJETOS");
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            movementSpeed = runningSpeed;
+            m_AudioSource.SetParameter("Velocidad", 1.0f);
+        }
+        else
+        {
+            movementSpeed = walkingSpeed;
+            m_AudioSource.SetParameter("Velocidad", 0.0f);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

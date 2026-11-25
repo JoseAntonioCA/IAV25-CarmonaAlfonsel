@@ -954,6 +954,7 @@ GameObject:
   - component: {fileID: 3576288450122217075}
   - component: {fileID: 142462114116109389}
   - component: {fileID: -6661345214335908884}
+  - component: {fileID: 6616738860199417646}
   m_Layer: 0
   m_Name: JohnLemon
   m_TagString: Player
@@ -1164,7 +1165,8 @@ MonoBehaviour:
   dropableObject: {fileID: 0}
   collider: {fileID: 0}
   turnSpeed: 20
-  movementSpeed: 0
+  walkingSpeed: 2.5
+  runningSpeed: 5
   attackRange: 0
   maxNumberDropableObjects: 0
 --- !u!114 &-6661345214335908884
@@ -1181,6 +1183,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &6616738860199417646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077229646317852079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1473345219
+      Data2: 1176438975
+      Data3: -587339383
+      Data4: 1242270228
+    Path: event:/Pasos
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: Velocidad
+    Value: 0
+    ID:
+      data1: 0
+      data2: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7028247037451646163
 GameObject:
   m_ObjectHideFlags: 0
