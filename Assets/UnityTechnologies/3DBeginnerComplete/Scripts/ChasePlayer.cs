@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using FMODUnity;
 using JetBrains.Annotations;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,6 +15,7 @@ public class ChasePlayer : BaseState
 
     bool playerVisible;
     bool partnerAlert;
+    private StudioEventEmitter audioSource;
 
     public void SeePlayer(bool see)
     {
@@ -27,6 +29,7 @@ public class ChasePlayer : BaseState
         originalStoppingDistance = navMeshAgent.stoppingDistance;
         playerVisible = true;
         partnerAlert = true;
+        audioSource.SetParameter("Velocidad", 1f);
         navMeshAgent.SetDestination(player.position);
         
     }
@@ -37,6 +40,7 @@ public class ChasePlayer : BaseState
         stopChaseCoolDown = chaseTime;
         playerVisible = false;
         partnerAlert = false;
+        audioSource.SetParameter("Velocidad", 0f);
     }
 
     void Start()
@@ -68,6 +72,8 @@ public class ChasePlayer : BaseState
         partnerAlert = false;
         enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
         stopChaseCoolDown = chaseTime;
+
+        audioSource = GetComponent<StudioEventEmitter>();
         this.enabled = false;
     }
 

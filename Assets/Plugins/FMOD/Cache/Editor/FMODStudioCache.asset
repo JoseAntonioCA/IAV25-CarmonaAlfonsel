@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9054920632287107875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Pasos/Velocidad
+  m_EditorClassIdentifier: 
+  Name: Velocidad
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1791685737
+    data2: 2913346928
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Normal
+  - "R\xE1pido"
+  Exists: 1
 --- !u!114 &-7799968576922002620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +41,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Musica.bank
   Name: Musica
   StudioPath: bank:/Musica
-  lastModified: 639311390728920715
+  lastModified: 639312115081388932
   FileSizes: []
   Exists: 1
 --- !u!114 &-3566413560939804264
@@ -38,6 +64,24 @@ MonoBehaviour:
   - Name: 
     Value: 820
   Exists: 1
+--- !u!114 &-2064927478123602196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Common SFX.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/output build/Desktop/Common SFX.bank
+  Name: Common SFX
+  StudioPath: bank:/Common SFX
+  lastModified: 639312132716662200
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-1162272293920383781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,10 +97,10 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639311384442529122
+  lastModified: 639312132716409557
   FileSizes:
   - Name: 
-    Value: 932
+    Value: 1104
   Exists: 1
 --- !u!114 &-1125282324392891471
 MonoBehaviour:
@@ -107,7 +151,7 @@ MonoBehaviour:
   - {fileID: 2578650521846947732}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 15
@@ -147,21 +191,26 @@ MonoBehaviour:
   - {fileID: 4996830392788695232}
   - {fileID: 2578650521846947732}
   - {fileID: -7799968576922002620}
+  - {fileID: 3364132442973467589}
+  - {fileID: -2064927478123602196}
   EditorEvents:
   - {fileID: -680749581382582394}
   - {fileID: 1010374880223902878}
+  - {fileID: 2311576539327076011}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4996830392788695232}
   StringsBanks:
   - {fileID: -1162272293920383781}
   cacheVersion: 131861
-  cacheTime: 639311390728920715
+  cacheTime: 639312132716662200
   SerializableEventsDict:
   - key: event:/Pasos Enemigo
     index: 0
   - key: event:/Musica Ambiente
     index: 1
+  - key: event:/Pasos
+    index: 2
 --- !u!114 &1010374880223902878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +238,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 191712
+--- !u!114 &2311576539327076011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Pasos
+  m_EditorClassIdentifier: 
+  Path: event:/Pasos
+  Guid:
+    Data1: 1473345219
+    Data2: 1176438975
+    Data3: -587339383
+    Data4: 1242270228
+  Banks:
+  - {fileID: -2064927478123602196}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -9054920632287107875}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 460
 --- !u!114 &2578650521846947732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +281,25 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Enemigos.bank
   Name: Enemigos
   StudioPath: bank:/Enemigos
-  lastModified: 639311390728679107
+  lastModified: 639312132716339287
+  FileSizes: []
+  Exists: 1
+--- !u!114 &3364132442973467589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Jugador.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/output build/Desktop/Jugador.bank
+  Name: Jugador
+  StudioPath: bank:/Jugador
+  lastModified: 639312132716474944
   FileSizes: []
   Exists: 1
 --- !u!114 &4996830392788695232
@@ -222,7 +317,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639311384442513946
+  lastModified: 639312132716404497
   FileSizes: []
   Exists: 1
 --- !u!114 &6235865349132445775

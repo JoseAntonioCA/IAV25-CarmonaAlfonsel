@@ -5899,46 +5899,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: EventPlayTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Pasos Enemigo
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: OverrideMaxDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: OverrideMinDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: -2061701035
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1215664066
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: -1484188998
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970075896589992346, guid: 78505dcdeb8a03f44a9badac28c88bf8,
-        type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: -7359072
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1846602049976478612, guid: 78505dcdeb8a03f44a9badac28c88bf8, type: 3}
     m_RemovedGameObjects: []

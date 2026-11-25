@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,10 +10,12 @@ public class WaypointPatrol : BaseState
     public Transform[] waypoints;
 
     int m_CurrentWaypointIndex;
+    private StudioEventEmitter audioSource;
 
     private void OnEnable()
     {
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+        audioSource.SetParameter("Velocidad", 0f);
     }
 
     void Start ()
@@ -42,6 +45,7 @@ public class WaypointPatrol : BaseState
         }
         navMeshAgent.SetDestination (waypoints[0].position);
         enemyComunicator = comunicator.GetComponent<EnemyComunicator>();
+        audioSource = GetComponent<StudioEventEmitter>();
     }
 
     public override void DetectSmth()
