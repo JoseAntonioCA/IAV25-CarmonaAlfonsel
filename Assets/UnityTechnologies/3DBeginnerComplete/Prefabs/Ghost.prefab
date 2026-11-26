@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 2019560048712333803}
   - component: {fileID: 2295513564009944732}
   - component: {fileID: -2209165251410899229}
+  - component: {fileID: 8279892014866585432}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: GHOST
@@ -715,6 +716,41 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &8279892014866585432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5075534488604402034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29013093fe846f945bc040abebc966fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  audioSource: {fileID: 0}
+  capasParedes:
+    serializedVersion: 2
+    m_Bits: 0
+  parametroOclusion: Oclusion
+  offsetEmisor: {x: 0, y: 0.5, z: 0}
+  offsetOyente: {x: 0, y: 1, z: 0}
+  grosorParaMaximo: 1
+  rodeoParaMaximo: 10
+  pesoGrosor: 0.7
+  intervaloCalculo: 0.2
+  velocidadTransicion: 3
+  radioMuestreoNavMesh: 2
+  grosorTotal: 0
+  distanciaDirecta: 0
+  distanciaCamino: 0
+  rodeoExtra: 0
+  rutaCompleta: 0
+  factorGrosor: 0
+  factorCamino: 0
+  oclusionObjetivo: 0
+  occlusionFactor: 0
 --- !u!1 &5863192054190611860
 GameObject:
   m_ObjectHideFlags: 0

@@ -409,7 +409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &95205449
 Transform:
   m_ObjectHideFlags: 0
@@ -456,6 +456,74 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &107704620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107704621}
+  - component: {fileID: 107704622}
+  m_Layer: 0
+  m_Name: AudioEscondite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107704621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107704620}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.1020045, y: 10.322952, z: 4.5622263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1639060806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &107704622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107704620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 218007917
+      Data2: 1113018373
+      Data3: -30167910
+      Data4: -1280276124
+    Path: snapshot:/Escondido
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: HiddenState_ReverbAmount
+    Value: 1
+    ID:
+      data1: 0
+      data2: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &126175999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3242857190817116118, guid: 78505dcdeb8a03f44a9badac28c88bf8,
@@ -3021,6 +3089,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 142462114116109389, guid: e58a8494f35e17f45ba5bbffdfb92517,
         type: 3}
+      propertyPath: audioEscondite
+      value: 
+      objectReference: {fileID: 107704622}
+    - target: {fileID: 142462114116109389, guid: e58a8494f35e17f45ba5bbffdfb92517,
+        type: 3}
       propertyPath: dropableObject
       value: 
       objectReference: {fileID: 7590260343566051041, guid: 461a39b53f140ed4e93b380d98aa52ec,
@@ -3188,15 +3261,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6077229646317852079, guid: e58a8494f35e17f45ba5bbffdfb92517,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1462502274}
-    - targetCorrespondingSourceObject: {fileID: 6077229646317852079, guid: e58a8494f35e17f45ba5bbffdfb92517,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1462502275}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e58a8494f35e17f45ba5bbffdfb92517, type: 3}
 --- !u!1 &1136727933
 GameObject:
@@ -4198,51 +4263,6 @@ CapsuleCollider:
     type: 3}
   m_PrefabInstance: {fileID: 1116376164}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1462502274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462502263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
---- !u!114 &1462502275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462502263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1 &1476934066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,6 +4622,7 @@ Transform:
   - {fileID: 1335335147}
   - {fileID: 133523610}
   - {fileID: 2083681362}
+  - {fileID: 107704621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720216878 stripped
