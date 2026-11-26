@@ -44,6 +44,30 @@ MonoBehaviour:
   lastModified: 639312287979762994
   FileSizes: []
   Exists: 1
+--- !u!114 &-4258805870828383892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Pasos/Oclusion
+  m_EditorClassIdentifier: 
+  Name: Oclusion
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2903380068
+    data2: 2008998090
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-3566413560939804264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +103,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Common SFX.bank
   Name: Common SFX
   StudioPath: bank:/Common SFX
-  lastModified: 639312287979944505
+  lastModified: 639313023411192519
   FileSizes: []
   Exists: 1
 --- !u!114 &-1162272293920383781
@@ -97,10 +121,10 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639312281924173927
+  lastModified: 639313023411481081
   FileSizes:
   - Name: 
-    Value: 1220
+    Value: 1210
   Exists: 1
 --- !u!114 &-1125282324392891471
 MonoBehaviour:
@@ -129,33 +153,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-680749581382582394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Pasos Enemigo
-  m_EditorClassIdentifier: 
-  Path: event:/Pasos Enemigo
-  Guid:
-    Data1: -2061701035
-    Data2: 1215664066
-    Data3: -1484188998
-    Data4: -7359072
-  Banks:
-  - {fileID: 2578650521846947732}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 15
-  Length: 13096
 --- !u!114 &-167519488194185607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +191,6 @@ MonoBehaviour:
   - {fileID: 3364132442973467589}
   - {fileID: -2064927478123602196}
   EditorEvents:
-  - {fileID: -680749581382582394}
   - {fileID: 1010374880223902878}
   - {fileID: 2311576539327076011}
   - {fileID: 2364206052820782155}
@@ -204,16 +200,14 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1162272293920383781}
   cacheVersion: 131861
-  cacheTime: 639312287979944505
+  cacheTime: 639313023411481081
   SerializableEventsDict:
-  - key: event:/Pasos Enemigo
-    index: 0
   - key: event:/Musica Ambiente
-    index: 1
+    index: 0
   - key: event:/Pasos
-    index: 2
+    index: 1
   - key: snapshot:/Escondido
-    index: 3
+    index: 2
 --- !u!114 &1010374880223902878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +284,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: -9054920632287107875}
+  - {fileID: -4258805870828383892}
   MinDistance: 1
   MaxDistance: 20
   Length: 460
@@ -336,7 +331,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Enemigos.bank
   Name: Enemigos
   StudioPath: bank:/Enemigos
-  lastModified: 639312132716339287
+  lastModified: 639313023411279607
   FileSizes: []
   Exists: 1
 --- !u!114 &3364132442973467589
@@ -372,7 +367,7 @@ MonoBehaviour:
   Path: FMOD/output build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639312281924167272
+  lastModified: 639313023411465971
   FileSizes: []
   Exists: 1
 --- !u!114 &6235865349132445775
